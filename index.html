@@ -28,8 +28,15 @@ Twitter: @estellevw
 }
 .code:hover {
    color: red;
-   font-size: 105%;
    background-color: rgba(255,255,255,0.9);
+}
+.code:not(.code2):hover {
+   font-size: 120%;
+}
+.code2:hover {
+	transform: scale(1.4);
+	transform-origin: 0 0;
+	
 }
 .yes, .no {
 	position: relative;
@@ -71,6 +78,7 @@ column-gap: 0.1em;}
 	transition: all 1s ease-in 50ms;
     transform-origin: 100px 123px;
 }
+.outlined:hover {outline: 5px solid green;}
 .spinbox .dot {
 	position: absolute;
 	top: 123px;
@@ -184,11 +192,13 @@ column-gap: 0.1em;}
 
 @keyframes drawALine {
   0%{
-    width:0;	
+    width:0;
+	  color:green;	
   }
 
   100% {
     width: 100%;
+	  color:blue;
   }
 }
 .slide nav {
@@ -324,6 +334,33 @@ code:hover {
 }</pre>
 </section>
 </div>
+
+
+<!-- font transition example -->
+<div class="slide"> 
+<header><h1>transitions</h1></header> 
+<section class="content"> 
+<pre contenteditable class="code code2">code {
+   color: black;
+   font-size: 85%;
+   background-color: rgba(255,255,255,0.9);
+   transition: all 2s ease-in 50ms;
+}
+code:hover {
+   color: red;
+   transform: scale(1.4);
+   transform-origin: 0 0;
+   background-color: rgba(255,255,255,0.8);
+}
+</pre>
+<pre contenteditable>code {
+   transition: 
+      transform 2s ease-in 50ms;
+}</pre>
+</section>
+</div>
+
+
 
 <!-- what can be transitioned? -->
 <div class="slide normal"> 
@@ -786,8 +823,12 @@ animated yet!</h1></header>
 <script defer>
  function changeDuration(){
 	 var speed = document.getElementById('speedrange').value;
-	 document.getElementById('animationduration').style.webkitAnimationDuration = speed + 's';
-	 document.getElementById('animationduration').style.webkitAnimationName = 'drawALine';
+	 var el = document.getElementById('animationduration');
+	 el.style.webkitAnimation = 
+		el.style.mozAnimation = 
+		el.style.oAnimation = 
+		el.style.msAnimation =
+		el.style.animation =  'drawALine ' + speed + 's';
 	 var seconds = document.querySelectorAll("#animdur span.changer");
 	 for(var i = 0, j = seconds.length; i < j; i++){
 		 seconds[i].innerHTML = speed;
@@ -806,7 +847,7 @@ animated yet!</h1></header>
     	<h1>&lsquo;animation-timing-function&rsquo;</h1>
     </header> 
     <section class="content"> 
-    <pre contenteditable>.pencil { <select  onChange="changeTimingFunction(event)"><option value="ease">ease</option><option value="ease-in">ease-in</option><option value="ease-out">ease-out</option><option value="ease-in-out" selected>ease-in-out</option><option value="step-start">step-start</option><option value="step-end">step-end</option><option value="steps(8, start)">steps(8, start)</option></select>
+    <pre contenteditable>.pencil { <select  onChange="changeTimingFunction(event)"><option value="linear">linear</option><option value="ease">ease</option><option value="ease-in">ease-in</option><option value="ease-out">ease-out</option><option value="ease-in-out" selected>ease-in-out</option><option value="step-start">step-start</option><option value="step-end">step-end</option><option value="steps(8, start)">steps(8, start)</option></select>
   <u></u>animation-name: drawALine; 
   <u></u>animation-duration: 8s;
   <b><u></u>animation-timing-function: <span class="changer">ease-in-out</span>;</b>
@@ -830,9 +871,14 @@ steps( X, start|<strong>end</strong>) <span class="notes">/* X = # of steps + wh
 	 for(var i = 0, j = seconds.length; i < j; i++){
 		 seconds[i].innerHTML = speed;
 	 }
-	 document.getElementById('animationtimingfunc').style.webkitAnimationDuration = '8s';
-	 document.getElementById('animationtimingfunc').style.webkitAnimationName = 'drawALine';
-	 document.getElementById('animationtimingfunc').style.webkitAnimationTimingFunction = speed;
+	 var el = document.getElementById('animationtimingfunc')
+	 el.style.webkitAnimation = 
+		el.style.mozAnimation = 
+		el.style.oAnimation = 
+		el.style.msAnimation =
+		el.style.animation = 'drawALine 8s ' + speed;
+	// document.getElementById('animationtimingfunc').style.webkitAnimationName = 'drawALine';
+	// document.getElementById('animationtimingfunc').style.webkitAnimationTimingFunction = speed;
  }
 </script>
     </div>   
@@ -893,11 +939,12 @@ steps( X, start|<strong>end</strong>) <span class="notes">/* X = # of steps + wh
  }
  function changeDelay(){
 	 var speed = (document.getElementById('delayrange').value * 1).toFixed(1);
-	 document.getElementById('animationdelayi').style.webkitAnimation = "drawALine 8s ease-in-out " + speed + 's 2';
-	/* document.getElementById('animationdelayi').style.webkitAnimationDuration = '8s';
-	 document.getElementById('animationdelayi').style.webkitAnimationName = 'gettingThePencil';
-	 document.getElementById('animationdelayi').style.webkitAnimationTimingFunction = 'ease-in-out';
-	 document.getElementById('animationdelayi').style.webkitAnimationDelay = speed + 's';*/
+	 var el = document.getElementById('animationdelayi');
+	    el.style.webkitAnimation = 
+		el.style.mozAnimation = 
+		el.style.oAnimation = 
+		el.style.msAnimation =
+		el.style.animation  = "drawALine 8s ease-in-out " + speed + 's 2';
 	 console.log(speed);
 	 var seconds = document.querySelectorAll("#animdelay span.changer");
 	 for(var i = 0, j = seconds.length; i < j; i++){
@@ -911,7 +958,7 @@ steps( X, start|<strong>end</strong>) <span class="notes">/* X = # of steps + wh
     
 
     
-     
+<!-- animation direction -->     
 <div class="slide" id="animdir"> <i></i>
   
     <header>
@@ -934,7 +981,12 @@ steps( X, start|<strong>end</strong>) <span class="notes">/* X = # of steps + wh
 </section>
 <script>
 function changeDirection(direction){
-	 document.getElementById('animationdir').style.webkitAnimation = "drawALine 5s ease-in-out 0.1s 5 "+ direction;	
+	var el = document.getElementById('animationdir');
+	el.style.webkitAnimation = 
+	el.style.mozAnimation = 
+	el.style.oAnimation = 
+	el.style.msAnimation =
+	el.style.animation = "drawALine 5s ease-in-out 0.1s 5 "+ direction;	
 }
 
 </script>
@@ -944,7 +996,7 @@ function changeDirection(direction){
     
 
     
-    
+<!-- shorthand -->   
 <div class="slide" id="animsh"> 
     <header>
     	<h1>&lsquo;animation&rsquo; (shorthand)</h1>
@@ -1016,13 +1068,107 @@ function changeDirection(direction){
 		console.log(iteration);
 		document.getElementById('fmsh').innerHTML = fillMode;
 		
-		document.getElementById('animationfm').style.webkitAnimation = "drawALine 5s ease-in-out 1s " + iteration + "  "+ fillMode;		
+		var el = document.getElementById('animationfm'); 
+		el.style.webkitAnimation = 
+		el.style.mozAnimation = 
+		el.style.oAnimation = 
+		el.style.msAnimation =
+		el.style.animation = "drawALine 5s ease-in-out 1s " + iteration + "  "+ fillMode;		
 	}
 	
 </script>
 </div>
 
 
+
+    
+     
+    
+<div class="slide" id="animfm2"> <i></i>
+<header><h1>&lsquo;animation-fill-mode: backwards&rsquo;</h1></header> 
+<section class="content"> 
+<pre contenteditable>.pencil {
+  <u></u>animation-name: falling; 
+  <u></u>animation-duration: 3s;
+  <u></u>animation-timing-function: ease-in-out;
+  <u></u>animation-iteration-count: 3;
+  <u></u>animation-delay: 5s;
+ <b> -webkit-animation-fill-mode: backwards;</b>
+ <b> -moz-animation-fill-mode: backwards;</b>
+ <b> -o-animation-fill-mode: backwards;</b>
+ <b> animation-fill-mode: backwards;</b>
+}</pre>
+<p>. . . or . . .<span style="float: right; font-size: 80%"><span onClick="vendorPrefix('w', 'animfm2')">-webkit-</span><span onClick="vendorPrefix('r', 'animfm2')"> | </span> <span onClick="vendorPrefix('m', 'animfm2')">-moz-</span> 
+<span onClick="vendorPrefix('r', 'animfm2')"> | </span> <span onClick="vendorPrefix('o', 'animfm2')">-o-</span> 
+</p>
+</p>
+<pre contenteditable>
+.pencil {
+ -webkit-animation: falling 3s ease-in-out 2s 3  <b>backwards</b>;
+ -moz-animation: falling 3s ease-in-out 2s 3  <b>backwards</b>;
+ -o-animation: falling 3s ease-in-out 2s 3  <b>backwards</b>;
+ animation: falling 3s ease-in-out 2s 3  <b>backwards</b>;
+}</pre>
+
+</section>
+</div>
+    
+ 
+ 
+ <div class="slide" id="animfm3"> <i></i>
+<header><h1>&lsquo;animation-fill-mode: both&rsquo;</h1></header> 
+<section class="content"> 
+<pre contenteditable>.pencil {
+  <u></u>animation-name: falling; 
+  <u></u>animation-duration: 3s;
+  <u></u>animation-timing-function: ease-in-out;
+  <u></u>animation-iteration-count: 3;
+  <u></u>animation-delay: 5s;
+ <b> -webkit-animation-fill-mode: both;</b>
+ <b> -moz-animation-fill-mode: both;</b>
+ <b> -ms-animation-fill-mode: both;</b>
+}</pre>
+<p>. . . or . . .<span style="float: right; font-size: 80%"><span onClick="vendorPrefix('w', 'animfm3')">-webkit-</span>
+<span onClick="vendorPrefix('r', 'animfm3')"> | </span> <span onClick="vendorPrefix('m', 'animfm3')">-moz-</span> 
+<span onClick="vendorPrefix('r', 'animfm3')"> | </span> <span onClick="vendorPrefix('o', 'animfm3')">-o-</span> 
+</p>
+</p>
+<pre contenteditable>
+.pencil {
+ -webkit-animation: falling 3s ease-in-out 2s 3  <b>both</b>;
+ -moz-animation: falling 3s ease-in-out 2s 3  <b>both</b>;
+ -ms-animation: falling 3s ease-in-out 2s 3  <b>both</b>;
+}</pre>
+
+</section>
+</div>    
+    
+<div class="slide" id="animfillmodeall4" onClick="this.classList.toggle('animationon');"> 
+<header><h1>Animation Fill Mode (again)</h1></header> 
+<section class="content"> 
+	<div class="box">animation-fill-mode: none; <span class="afmnone"></span></div>
+	<div class="box">animation-fill-mode: forwards;<span class="afmforwards"></span></div>
+	<div class="box">animation-fill-mode: backwards;<span class="afmbackwards"></span></div>
+    <div class="box">animation-fill-mode: both;<span class="afmboth"></span></div>
+    <pre>.box { animation: showme 5s linear 5s 1;}
+@keyframes showme {
+	0% {left: 200px; background-color:blue;}
+	50% {background-color:green;}
+	100% {left: 600px; background-color: yellow;}
+}</pre>
+</section>
+</div>
+
+    
+ <div class="slide"> 
+<header><h1>Can you stop an animation?</h1></header> 
+<section class="content"> 
+
+</section>
+</div>
+    
+     
+    
     
  
 <div class="slide" id="animps">
@@ -1050,19 +1196,81 @@ function changeDirection(direction){
 </section>
 </div>
     
+ 
+<div class="slide">
+<header><h1>&lsquo;animation-play-state&rsquo;</h1></header> 
+<section class="content"> 
+<b class="pencil pencil_pausing outlined">✎</b>
+<pre contenteditable>animation-play-state: paused | running</pre>
+<pre contenteditable>.pencil<b>:hover</b> {
+  <b>-webkit-animation-play-state: paused;</b>
+  <b>-moz-animation-play-state: paused;</b>
+  <b>-o-animation-play-state: paused;</b>
+  <b>animation-play-state: paused;</b>
+  }</pre>
+</section>
+</div>
+    
      
     
 
     
  
-     
-       
-
-<!-- NEXT -->
-<div class="slide intro"> 
-     <header><h1>Other Features</h1></header>
-    <h1><a href="part_12_features.html">Next ➹</a></h1>
+<div class="slide"> 
+<header><h1>What happens at animation end?</h1></header> 
+<section class="content"> 
+<ul>
+	<li>animationstart</li>
+	<li>animationend</li>
+	<li>animationiteration</li>
+</ul>
+<pre contenteditable>
+el.addEventListener( <b>'webkitAnimationEnd'</b>, 
+    function( event ) {
+        console.log('Animation Ended'); 
+    }, false );
+</pre>
+<ul>
+	<li>webkitAnimationStart</li>
+	<li>webkitAnimationEnd</li>
+	<li>webkitAnimationIteration</li>
+</ul>
+</section>
 </div> 
+    
+     
+    
+
+    
+ 
+<div class="slide"> 
+<header><h1>Starting next animation at end of previous</h1></header> 
+<section class="content"> 
+
+<pre contenteditable>el.addEventListener( <b>'webkitAnimationEnd'</b>, 
+    function( event ) {
+        el.removeClassName('newClass'); 
+        setTimeout("el.addClassName('newClass')", 100ms) 
+    }, 
+    false );
+</pre>
+
+</section>
+</div> 
+    
+     
+     
+<div class="slide normal"> 
+<header><h1>Thanks</h1></header> 
+<section class="content"> 
+<h1 class="textmask">Estelle Weyl</h1>
+<h2><a href="http://www.standardista.com">www.standardista.com</a></h2>
+<h2><a href="http://www.twitter.com/estellevw">@estellevw</a></h2>
+<h2><a href="http://www.twitter.com/standardista">@standardista</a></h2>
+<div style="float:right"><img src="http://akamaicovers.oreilly.com/images/9780980846904/cat.gif" alt="HTML5 and CSS3 for the Real World"><img src="http://akamaicovers.oreilly.com/images/0636920018063/cat.gif" alt="HTML5: The Definitive Guide" style="margin: 0 20px;"/><img src="http://akamaicovers.oreilly.com/images/0636920021711/cat.gif" alt="MObile HTML5" style="margin: 0 20px;"/><img src="http://akamaicovers.oreilly.com/images/0636920025955/cat.gif" alt="Web Performance Daybook"/></div>
+</section>
+</div> 
+
    
   </div>
   <script src="static/prefixfree.js"></script>
@@ -1508,8 +1716,30 @@ SlideShow.prototype = {
   var slideshow = new SlideShow(query('.slide'));
 })();
 
+  </script>
+  <script>
+    var getPrefix = function(style) {
 
+    var elem = document.createElement('div');
+    var prefixes = ['Webkit', 'Moz', 'O', 'ms', 'Khtml'];
+    var bool;
+    var bump = function(all, letter) {
+          return letter.toUpperCase();
+        };
+    var prop;
 
+    bool = style in elem.style;
+    prop = style.replace(/^(.)/, bump).replace(/-([a-z])/ig, bump);
+
+    for (var len = prefixes.length; len--; ){
+      if (bool) {
+        return '';
+      }
+      bool = prefixes[len] + prop in elem.style;
+	  if(bool) return prefixes[len];
+    }
+    return '';
+  };
   </script>
   <!--[if lt IE 9]>
   <script 
