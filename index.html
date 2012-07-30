@@ -305,8 +305,8 @@ background-position: -1em -1em;
 .carda.flipped:nth-of-type(2){transform: rotate(0) translatex(120px);}
 .card:last-of-type,
 .carda:last-of-type {transform: rotate(5deg);}
-.card:first-of-type:hover,
-.carda.flipped:first-of-type{transform: rotate(10deg) translatey(180px);}
+.card:first-of-type:hover{transform: rotate(10deg) translatey(180px);}
+.carda.flipped:first-of-type{transform: rotate(-5deg) translate(240px, 25px);}
 
 .carda.flipped .front,
 .carda.unflipped .back {animation: flipme 1s linear forwards;}
@@ -1231,6 +1231,12 @@ function changeDirection(direction){
 .carda.unflipped .front,
 .carda.flipped .back {
   animation: unflipme 1s linear both;
+}
+.card.flipped:nth-of-type(2){
+  transform: rotate(0) translatex(120px);
+}
+.carda.flipped:first-of-type{
+  transform: rotate(-5deg) translate(240px, 25px);
 }
 @keyframes flipme {
   0% {transform: rotatey(0deg)}
