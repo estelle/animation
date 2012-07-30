@@ -233,7 +233,7 @@ nav li:hover ul {transform: scale(1,1);}
 }
 pre u {text-decoration:none; font-weight:bold;}
 
-.card {
+.card, .carda {
 	width: 200px;
 	height: 300px;
 	border-radius: 10px;
@@ -242,7 +242,10 @@ pre u {text-decoration:none; font-weight:bold;}
 	font-size: .8em;
 	perspective: 600px;
 }
-.card .front {
+.card:hover,
+.carda {transition: 1s ease;}
+.card .front,
+.carda .front {
 	
 float: none;
 position: absolute;
@@ -265,15 +268,16 @@ linear-gradient(-45deg, red 25%, transparent 25%, transparent 75%, white 75%, wh
 linear-gradient(45deg, red 17%, transparent 17%, transparent 25%, red 25%, red 36%, transparent 36%, transparent 64%, red 64%, red 75%, transparent 75%, transparent 83%, red 83%) 1em 1em;
 background-color: white;
 background-size: 2em 2em;
+background-position: -1em -1em;
 
 }
 .card:hover .front {
-	
 	z-index: 900;;
 	transform: rotateY(180deg);
 	box-shadow: 0 15px 50px rgba(0,0,0,0.2);	
 }
-.card .back {
+.card .back,
+.carda .back {
 	float: none;
 	position: absolute;
 	top: 0;
@@ -289,18 +293,69 @@ background-size: 2em 2em;
 	transition: all .4s ease-in-out;
 	border-radius: 10px;
 	border: 10px solid #fff;	
-box-shadow: 0 1px 5px rgba(0,0,0,0.9);
+    box-shadow: 0 1px 5px rgba(0,0,0,0.9);
 }
 .card:hover .back {
 	z-index: 1000;
 	transform: rotateY(0);
 }
-.card:first-of-type {transform: rotate(-5deg);}
-.card:last-of-type {transform: rotate(5deg);}
+.card:first-of-type,
+.carda:first-of-type {transform: rotate(-5deg);}
+.card:nth-of-type(2):hover, 
+.carda.flipped:nth-of-type(2){transform: rotate(0) translatex(120px);}
+.card:last-of-type,
+.carda:last-of-type {transform: rotate(5deg);}
+.card:first-of-type:hover,
+.carda.flipped:first-of-type{transform: rotate(10deg) translatey(180px);}
 
-.card .back {color:red; font-size: 50px; line-height: 300px; text-align:center;}
-.card .back:after {content: 'A'; position:absolute; top: 10px; left: 10px; line-height:20px;}
-.card .back:before {content: 'A'; position:absolute; bottom: 10px; right: 10px; line-height:20px;}
+.carda.flipped .front,
+.carda.unflipped .back {animation: flipme 1s linear forwards;}
+.carda.unflipped .front,
+.carda.flipped .back {animation: unflipme 1s linear both;}
+/*
+.carda.flipped:first-of-type  {animation: flipme 1s linear forwards;}
+.carda.flipped:nth-of-type(2){animation: flipme 1s linear forwards;}
+.carda.flipped:last-of-type  {animation: flipme 1s linear forwards;}
+.carda.unflipped:first-of-type {animation: flipme 1s linear -1s alternate;}
+.carda.unflipped:nth-of-type(2){animation: flipme 1s linear -1s alternate;}
+.carda.unflipped:last-of-type  {animation: flipme 1s linear -1s alternate;}
+*/
+@keyframes flipme {
+	0% {transform: rotatey(0deg)}
+	100% {transform: rotateY(-180deg);}	
+}
+@keyframes unflipme {
+	0% {transform: rotatey(180deg)}
+	100% {transform: rotateY(0deg);}	
+}
+
+
+
+
+.card .back, .carda .back {color:red; font-size: 50px; line-height: 300px; text-align:center;}
+.card .back:after,
+.carda .back:after  {content: 'A'; position:absolute; top: 10px; left: 10px; line-height:20px;}
+.card .back:before,
+.carda .back:before {content: 'A'; position:absolute; bottom: 10px; right: 10px; line-height:20px;}
+@keyframes showme {
+	0% {left: 200px; background-color:blue; transform: rotate(0deg)}
+	50% {background-color:green;}
+	100% {left: 600px; background-color: yellow; transform: rotate(45deg)}
+}
+.box {padding:20px 50px; position:relative;}
+.box span {position: absolute; left: 0; top:20px; width: 50px; height:50px; background-color:black; 
+animation: showme 5s linear 5s 1;
+}
+
+span.afmforwards {
+	animation-fill-mode:forwards;	
+}
+span.afmbackwards {
+	animation-fill-mode:backwards;	
+}
+span.afmboth {
+	animation-fill-mode:both;	
+}
 </style>
     
   </head> 
@@ -626,6 +681,8 @@ nav li:hover ul {
      </section>
  </div>
  
+ 
+ <!-- card flip -->
  <div class="slide normal"> 
 <header><h1>Pick a card</h1></header> 
 <section class="content">
@@ -635,12 +692,50 @@ nav li:hover ul {
     </div>
     <div class="card">
         <div class="front"></div>
-        <div class="back">♥</div>
+        <div class="back" style="color: black">♣</div>
     </div>
     <div class="card">
         <div class="front"></div>
-        <div class="back">♥</div>
+        <div class="back">♦</div>
     </div> 
+    <pre contenteditable style="height:500px; overflow:scroll; float: right;">.card {
+  position: absolute;
+  perspective: 600px;
+}
+.card:hover {
+  transition: 1s ease;
+}
+.card .front {
+  transform: rotateX(0deg) rotateY(0deg);
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+  transition: all .4s ease-in-out;
+}
+.card:hover .front {
+  transform: rotateY(180deg);	
+}
+.card .back {
+  transform: rotateY(-180deg);
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+  transition: all .4s ease-in-out;
+}
+.card:hover .back {
+  transform: rotateY(0);
+}
+.card:first-of-type {
+  transform: rotate(-5deg);
+}
+.card:nth-of-type(2):hover {
+  transform: rotate(0) translatex(120px);
+}
+.card:last-of-type {
+  transform: rotate(5deg);
+}
+.card:first-of-type:hover {
+  transform: rotate(10deg) translatey(180px);
+}
+</pre>
 </section>
 </div> 
  
@@ -863,8 +958,6 @@ animated yet!</h1></header>
      width:100px;
      text-align: right;
      border-bottom: 10px solid;
-     overflow: hidden;
-     position: relative;
    }
    .pencil::after {
 	content: '✎';
@@ -874,8 +967,14 @@ animated yet!</h1></header>
    }
 </b></pre>
 <pre contenteditable>@keyframes drawALine {
-  0%   {  width: 0;    }
-  100% {  width: 100%; }
+  0%{
+    width:0;
+    color:green;	
+  }
+  100% {
+    width: 100%;
+    color:blue;
+  }
 }</pre>
  
      </section>
@@ -927,9 +1026,9 @@ animated yet!</h1></header>
     	<h1>&lsquo;animation-timing-function&rsquo;</h1>
     </header> 
     <section class="content"> 
-    <pre contenteditable>.pencil { <select  onChange="changeTimingFunction(event)"><option value="linear">linear</option><option value="ease">ease</option><option value="ease-in">ease-in</option><option value="ease-out">ease-out</option><option value="ease-in-out" selected>ease-in-out</option><option value="step-start">step-start</option><option value="step-end">step-end</option><option value="steps(8, start)">steps(8, start)</option></select>
+    <pre contenteditable>.pencil { <select  onChange="changeTimingFunction(event)"><option value="linear">linear</option><option value="ease">ease</option><option value="ease-in">ease-in</option><option value="ease-out">ease-out</option><option value="ease-in-out" selected>ease-in-out</option><option value="step-start">step-start</option><option value="step-end">step-end</option><option value="steps(5, start)">steps(5, start)</option><option value="steps(5, end)">steps(5, end)</option></select>
   <u></u>animation-name: drawALine; 
-  <u></u>animation-duration: 8s;
+  <u></u>animation-duration: 5s;
   <b><u></u>animation-timing-function: <span class="changer">ease-in-out</span>;</b>
 }</pre>
 
@@ -956,7 +1055,7 @@ steps( X, start|<strong>end</strong>) <span class="notes">/* X = # of steps + wh
 		el.style.mozAnimation = 
 		el.style.oAnimation = 
 		el.style.msAnimation =
-		el.style.animation = 'drawALine 8s ' + speed;
+		el.style.animation = 'drawALine 5s ' + speed;
 	// document.getElementById('animationtimingfunc').style.webkitAnimationName = 'drawALine';
 	// document.getElementById('animationtimingfunc').style.webkitAnimationTimingFunction = speed;
  }
@@ -1000,7 +1099,7 @@ steps( X, start|<strong>end</strong>) <span class="notes">/* X = # of steps + wh
     	<h1>&lsquo;animation-delay&rsquo;</h1>
     </header> 
     <section class="content">  <b id="animationdelayi" class="pencil pencilanim"></b>
-    <pre contenteditable>.pencil { <input type="range" value="2" min="-5" max="10" step="0.5" id="delayrange" onChange="changeTime()" /><button onClick="changeDelay();">Start</button>
+    <pre contenteditable>.pencil { <input type="range" value="2" min="-10" max="10" step="0.5" id="delayrange" onChange="changeTime()" /><input type="button" onClick="changeDelay();" value="Start">
   <u></u>animation-name: drawALine; 
   <u></u>animation-duration: 8s;
   <u></u>animation-timing-function: ease-in-out;
@@ -1108,7 +1207,58 @@ function changeDirection(direction){
      
      
  
-     
+ 
+ <!-- card flip -->
+ <div class="slide normal"> 
+<header><h1>Pick a card</h1></header> 
+<section class="content">
+    <div class="carda">
+        <div class="front"></div>
+        <div class="back">♥</div>
+    </div>
+    <div class="carda">
+        <div class="front"></div>
+        <div class="back" style="color: black">♣</div>
+    </div>
+    <div class="carda">
+        <div class="front"></div>
+        <div class="back">♦</div>
+    </div> 
+    <pre contenteditable style="height:500px; overflow:scroll; float: right;">.carda.flipped .front,
+.carda.unflipped .back {
+  animation: flipme 1s linear forwards;
+}
+.carda.unflipped .front,
+.carda.flipped .back {
+  animation: unflipme 1s linear both;
+}
+@keyframes flipme {
+  0% {transform: rotatey(0deg)}
+  100% {transform: rotateY(-180deg);}	
+}
+@keyframes unflipme {
+  0% {transform: rotatey(180deg)}
+  100% {transform: rotateY(0deg);}	
+}</pre>
+</section>
+</div>
+<script defer>
+  var cardas = document.querySelectorAll('.carda');
+  for (var q=0; q<cardas.length; q++){
+	cardas[q].addEventListener('click', function(){
+		if(this.classList.contains('flipped')){
+			this.classList.remove('flipped');
+			this.classList.add('unflipped');
+		} else {
+			this.classList.remove('unflipped');
+			this.classList.add('flipped');
+		}
+     });   
+  }
+</script> 
+
+ 
+       
      
     
 
@@ -1123,8 +1273,8 @@ function changeDirection(direction){
   <u></u>animation-name: gettingThePencil; 
   <u></u>animation-duration: 3s;
   <u></u>animation-timing-function: ease-in-out;
-  <u></u>animation-iteration-count: <span contenteditable id="fmitcount" onchange="document.getElementById('fmitcountres').innerHTML = this.innerHTML">1</span>
-  <u></u>animation-delay: 1s;
+  <u></u>animation-iteration-count: <span contenteditable id="fmitcount" onchange="document.getElementById('fmitcountres').innerHTML = this.innerHTML" style="background-color:#eee;">1</span>;
+  <u></u>animation-delay: 2s;
  <b><u></u>animation-fill-mode: none;</b>
 }</pre>
 <p>. . . or . . .
@@ -1153,75 +1303,13 @@ function changeDirection(direction){
 		el.style.mozAnimation = 
 		el.style.oAnimation = 
 		el.style.msAnimation =
-		el.style.animation = "drawALine 5s ease-in-out 1s " + iteration + "  "+ fillMode;		
+		el.style.animation = "drawALine 5s ease-in-out 2s " + iteration + "  "+ fillMode;		
 	}
 	
 </script>
 </div>
 
-
-
     
-     
-    
-<div class="slide" id="animfm2"> <i></i>
-<header><h1>&lsquo;animation-fill-mode: backwards&rsquo;</h1></header> 
-<section class="content"> 
-<pre contenteditable>.pencil {
-  <u></u>animation-name: falling; 
-  <u></u>animation-duration: 3s;
-  <u></u>animation-timing-function: ease-in-out;
-  <u></u>animation-iteration-count: 3;
-  <u></u>animation-delay: 5s;
- <b> -webkit-animation-fill-mode: backwards;</b>
- <b> -moz-animation-fill-mode: backwards;</b>
- <b> -o-animation-fill-mode: backwards;</b>
- <b> animation-fill-mode: backwards;</b>
-}</pre>
-<p>. . . or . . .<span style="float: right; font-size: 80%"><span onClick="vendorPrefix('w', 'animfm2')">-webkit-</span><span onClick="vendorPrefix('r', 'animfm2')"> | </span> <span onClick="vendorPrefix('m', 'animfm2')">-moz-</span> 
-<span onClick="vendorPrefix('r', 'animfm2')"> | </span> <span onClick="vendorPrefix('o', 'animfm2')">-o-</span> 
-</p>
-</p>
-<pre contenteditable>
-.pencil {
- -webkit-animation: falling 3s ease-in-out 2s 3  <b>backwards</b>;
- -moz-animation: falling 3s ease-in-out 2s 3  <b>backwards</b>;
- -o-animation: falling 3s ease-in-out 2s 3  <b>backwards</b>;
- animation: falling 3s ease-in-out 2s 3  <b>backwards</b>;
-}</pre>
-
-</section>
-</div>
-    
- 
- 
- <div class="slide" id="animfm3"> <i></i>
-<header><h1>&lsquo;animation-fill-mode: both&rsquo;</h1></header> 
-<section class="content"> 
-<pre contenteditable>.pencil {
-  <u></u>animation-name: falling; 
-  <u></u>animation-duration: 3s;
-  <u></u>animation-timing-function: ease-in-out;
-  <u></u>animation-iteration-count: 3;
-  <u></u>animation-delay: 5s;
- <b> -webkit-animation-fill-mode: both;</b>
- <b> -moz-animation-fill-mode: both;</b>
- <b> -ms-animation-fill-mode: both;</b>
-}</pre>
-<p>. . . or . . .<span style="float: right; font-size: 80%"><span onClick="vendorPrefix('w', 'animfm3')">-webkit-</span>
-<span onClick="vendorPrefix('r', 'animfm3')"> | </span> <span onClick="vendorPrefix('m', 'animfm3')">-moz-</span> 
-<span onClick="vendorPrefix('r', 'animfm3')"> | </span> <span onClick="vendorPrefix('o', 'animfm3')">-o-</span> 
-</p>
-</p>
-<pre contenteditable>
-.pencil {
- -webkit-animation: falling 3s ease-in-out 2s 3  <b>both</b>;
- -moz-animation: falling 3s ease-in-out 2s 3  <b>both</b>;
- -ms-animation: falling 3s ease-in-out 2s 3  <b>both</b>;
-}</pre>
-
-</section>
-</div>    
     
 <div class="slide" id="animfillmodeall4" onClick="this.classList.toggle('animationon');"> 
 <header><h1>Animation Fill Mode (again)</h1></header> 
