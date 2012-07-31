@@ -338,15 +338,22 @@ background-position: -1em -1em;
 .card .back:before,
 .carda .back:before {content: 'A'; position:absolute; bottom: 10px; right: 10px; line-height:20px;}
 @keyframes showme {
-	0% {left: 200px; background-color:blue; transform: rotate(0deg)}
+	0% {background-color:blue; transform: rotate(0deg) translate(200px, 0)}
+	50% {background-color:green;transform: rotate(22deg) translate(350px, -150px)}
+	100% {background-color: yellow; transform: rotate(45deg) translate(500px, -540px)}
+}
+@keyframes showme {
+	0% {background-color:blue; transform: rotate(0deg); left: 200px;}
 	50% {background-color:green;}
-	100% {left: 600px; background-color: yellow; transform: rotate(45deg)}
+	100% {background-color: yellow; transform: rotate(45deg); left: 600px;}
 }
 .box {padding:20px 50px; position:relative;}
 .box span {position: absolute; left: 0; top:20px; width: 50px; height:50px; background-color:black; 
-animation: showme 5s linear 5s 1;
+animation: showme 5s linear 5s 1; animation-play-state:paused; transform-origin: 50% 100%;
 }
-
+.current:hover .box span {
+	animation-play-state: running;	
+}
 span.afmforwards {
 	animation-fill-mode:forwards;	
 }
