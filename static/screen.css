@@ -57,214 +57,214 @@ body {
   top: 0px;
   display: block;
   overflow: hidden;
-  background-image: 
+  background-image:
   	-webkit-repeating-linear-gradient(135deg,
 	    yellow 0,
-		yellow 1px, 
+		yellow 1px,
 		green 1px,
 		green 9px,
 		yellow 9px,
 		yellow 10px,
 		red 10px,
-		red 11px, 
-		transparent 11px, 
+		red 11px,
+		transparent 11px,
 		transparent 40px),
 	-webkit-repeating-linear-gradient(45deg,
 	    yellow 0,
-		yellow 1px, 
+		yellow 1px,
 		green 1px,
 		green 9px,
 		yellow 9px,
 		yellow 10px,
 		red 10px,
-		red 11px, 
+		red 11px,
 		transparent 11px,
 		transparent 40px),
-	-webkit-repeating-linear-gradient(45deg, 
+	-webkit-repeating-linear-gradient(45deg,
 		transparent 0px,
 		transparent 15px,
 		black 15px,
-		black 25px, 
-		transparent 25px, 
+		black 25px,
+		transparent 25px,
 		transparent 40px),
-	-webkit-repeating-linear-gradient(135deg, 
+	-webkit-repeating-linear-gradient(135deg,
 		transparent 0px,
 		transparent 15px,
 		green 15px,
-		green 25px, 
-		transparent 25px, 
-		transparent 40px),	
-	-webkit-repeating-linear-gradient(135deg, 
+		green 25px,
+		transparent 25px,
+		transparent 40px),
+	-webkit-repeating-linear-gradient(135deg,
 		transparent 0px,
 		transparent 15px,
 		black 15px,
-		black 25px, 
-		transparent 25px, 
+		black 25px,
+		transparent 25px,
 		transparent 40px),
-	-webkit-repeating-linear-gradient(45deg, 
+	-webkit-repeating-linear-gradient(45deg,
 		transparent 0px,
 		transparent 15px,
 		green 15px,
-		green 25px, 
-		transparent 25px, 
-		transparent 40px)	
+		green 25px,
+		transparent 25px,
+		transparent 40px)
 		;
-	  background-image: 
+	  background-image:
   	-moz-repeating-linear-gradient(135deg,
 	    yellow 0,
-		yellow 1px, 
+		yellow 1px,
 		orange 1px,
 		orange 9px,
 		yellow 9px,
 		yellow 10px,
 		red 10px,
-		red 11px, 
-		transparent 11px, 
+		red 11px,
+		transparent 11px,
 		transparent 40px),
 	-moz-repeating-linear-gradient(45deg,
 	    yellow 0,
-		yellow 1px, 
+		yellow 1px,
 		orange 1px,
 		orange 9px,
 		yellow 9px,
 		yellow 10px,
 		red 10px,
-		red 11px, 
+		red 11px,
 		transparent 11px,
 		transparent 40px),
-	-moz-repeating-linear-gradient(45deg, 
+	-moz-repeating-linear-gradient(45deg,
 		transparent 0px,
 		transparent 15px,
 		black 15px,
-		black 25px, 
-		transparent 25px, 
+		black 25px,
+		transparent 25px,
 		transparent 40px),
-	-moz-repeating-linear-gradient(135deg, 
+	-moz-repeating-linear-gradient(135deg,
 		transparent 0px,
 		transparent 15px,
 		orange 15px,
-		orange 25px, 
-		transparent 25px, 
-		transparent 40px),	
-	-moz-repeating-linear-gradient(135deg, 
+		orange 25px,
+		transparent 25px,
+		transparent 40px),
+	-moz-repeating-linear-gradient(135deg,
 		transparent 0px,
 		transparent 15px,
 		black 15px,
-		black 25px, 
-		transparent 25px, 
+		black 25px,
+		transparent 25px,
 		transparent 40px),
-	-moz-repeating-linear-gradient(45deg, 
+	-moz-repeating-linear-gradient(45deg,
 		transparent 0px,
 		transparent 15px,
 		orange 15px,
-		orange 25px, 
-		transparent 25px, 
-		transparent 40px)	
+		orange 25px,
+		transparent 25px,
+		transparent 40px)
 		;
-		
-		  background-image: 
+
+		  background-image:
   	-ms-repeating-linear-gradient(135deg,
 	    yellow 0,
-		yellow 1px, 
+		yellow 1px,
 		magenta 1px,
 		magenta 9px,
 		yellow 9px,
 		yellow 10px,
 		purple 10px,
-		purple 11px, 
-		transparent 11px, 
+		purple 11px,
+		transparent 11px,
 		transparent 40px),
 	-ms-repeating-linear-gradient(45deg,
 	    yellow 0,
-		yellow 1px, 
+		yellow 1px,
 		magenta 1px,
 		magenta 9px,
 		yellow 9px,
 		yellow 10px,
 		purple 10px,
-		purple 11px, 
+		purple 11px,
 		transparent 11px,
 		transparent 40px),
-	-ms-repeating-linear-gradient(45deg, 
+	-ms-repeating-linear-gradient(45deg,
 		transparent 0px,
 		transparent 15px,
 		black 15px,
-		black 25px, 
-		transparent 25px, 
+		black 25px,
+		transparent 25px,
 		transparent 40px),
-	-ms-repeating-linear-gradient(135deg, 
+	-ms-repeating-linear-gradient(135deg,
 		transparent 0px,
 		transparent 15px,
 		magenta 15px,
-		magenta 25px, 
-		transparent 25px, 
-		transparent 40px),	
-	-ms-repeating-linear-gradient(135deg, 
+		magenta 25px,
+		transparent 25px,
+		transparent 40px),
+	-ms-repeating-linear-gradient(135deg,
 		transparent 0px,
 		transparent 15px,
 		black 15px,
-		black 25px, 
-		transparent 25px, 
+		black 25px,
+		transparent 25px,
 		transparent 40px),
-	-ms-repeating-linear-gradient(45deg, 
+	-ms-repeating-linear-gradient(45deg,
 		transparent 0px,
 		transparent 15px,
 		magenta 15px,
-		magenta 25px, 
-		transparent 25px, 
-		transparent 40px)	
+		magenta 25px,
+		transparent 25px,
+		transparent 40px)
 		;
-	  background-image: 
+	  background-image:
   	-o-repeating-linear-gradient(135deg,
 	    yellow 0,
-		yellow 1px, 
+		yellow 1px,
 		blue 1px,
 		blue 9px,
 		yellow 9px,
 		yellow 10px,
 		red 10px,
-		red 11px, 
-		transparent 11px, 
+		red 11px,
+		transparent 11px,
 		transparent 40px),
 	-o-repeating-linear-gradient(45deg,
 	    yellow 0,
-		yellow 1px, 
+		yellow 1px,
 		blue 1px,
 		blue 9px,
 		yellow 9px,
 		yellow 10px,
 		red 10px,
-		red 11px, 
+		red 11px,
 		transparent 11px,
 		transparent 40px),
-	-o-repeating-linear-gradient(45deg, 
+	-o-repeating-linear-gradient(45deg,
 		transparent 0px,
 		transparent 15px,
 		black 15px,
-		black 25px, 
-		transparent 25px, 
+		black 25px,
+		transparent 25px,
 		transparent 40px),
-	-o-repeating-linear-gradient(135deg, 
+	-o-repeating-linear-gradient(135deg,
 		transparent 0px,
 		transparent 15px,
 		blue 15px,
-		blue 25px, 
-		transparent 25px, 
-		transparent 40px),	
-	-o-repeating-linear-gradient(135deg, 
+		blue 25px,
+		transparent 25px,
+		transparent 40px),
+	-o-repeating-linear-gradient(135deg,
 		transparent 0px,
 		transparent 15px,
 		black 15px,
-		black 25px, 
-		transparent 25px, 
+		black 25px,
+		transparent 25px,
 		transparent 40px),
-	-o-repeating-linear-gradient(45deg, 
+	-o-repeating-linear-gradient(45deg,
 		transparent 0px,
 		transparent 15px,
 		blue 15px,
-		blue 25px, 
-		transparent 25px, 
-		transparent 40px)	
+		blue 25px,
+		transparent 25px,
+		transparent 40px)
 		;
 	background-color: black;
 }
@@ -317,10 +317,10 @@ body {
   padding-top: 10px;
 }
 .transparent {
-	background: none;	
+	background: none;
 }
 .intro p, header {
-  text-align: center;	
+  text-align: center;
 }
 .intro header {
   font-size: 200%;
@@ -330,7 +330,7 @@ body {
   margin-top: 200px;
 }
 .slide.teach {
-  background-color: #fff;	
+  background-color: #fff;
 }
 .content {
   font-size: 140%;
@@ -460,8 +460,8 @@ a, em {
   text-decoration: none;
   font-style:normal;
 }
-.imp li, 
-b.imp{ 
+.imp li,
+b.imp{
  	-webkit-transition: all 0.2s ease-in;
 }
 .imp li:hover, b.imp:hover{
@@ -545,15 +545,15 @@ div:not(.current).reduced {
 
 /* ############################
 
-    BROWSER SUPPORT & ICONS   
+    BROWSER SUPPORT & ICONS
 
    ############################ */
 
-	
-	
+
+
 .icons li, .icons .browser {
 			width: 68px; height: 14px; display: inline-block;
-			background-image:url(browser_logos-64.png);	
+			background-image:url(browser_logos-64.png);
 			border-radius: 32px;
 			font-size: 10px;
 			padding-top: 60px;
@@ -589,8 +589,8 @@ div:not(.current).reduced {
 			left:-15px;
 			content: "";
 			-webkit-box-sizing: padding-box;
-			background: 
-				-webkit-linear-gradient(135deg, 
+			background:
+				-webkit-linear-gradient(135deg,
 					transparent 45%,
 					red 45%,
 					red 55%,
@@ -599,9 +599,9 @@ div:not(.current).reduced {
 			height: 68px;
 			border-radius: 50%;
 			border: 10px solid red;
-			display:block;	
+			display:block;
 		}
-		
+
 		.icons .half:after {
 			position:absolute;
 			top: 0;
@@ -611,7 +611,7 @@ div:not(.current).reduced {
 			width: 33px;
 			border-radius: 0 0 50% 0;
 			height: 65px;
-			display:block;	
+			display:block;
 		}
 		.icons .half.new:after {
 			background-repeat: no-repeat;
@@ -627,6 +627,27 @@ div:not(.current).reduced {
 			background-image:url(../new.gif) ,
 			linear-gradient(0deg, transparent 30%, #DCe7f3 30%)        ;
 			width: 40px;
-			
+
 		}
 		.icons .txt {background-image: none; width: auto; font-size: 18px;}
+
+
+    /* OBJECT PAGES */
+.object header {
+  position:absolute;
+  top: 10px;
+  width: 100%;
+  text-align:center;
+  background-color: rgba(255,255,255,0.9);
+  left:0;
+}
+.objectlink {
+  position:absolute;
+  top:0; right:0;
+  color: white;
+  background-color: #000;
+  padding: 3px 5px;
+  border: none;
+}
+.slide.object {padding:0;}
+.object object {width: 100%; height: 100%;}

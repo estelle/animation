@@ -7,13 +7,63 @@
 <!--
 
 Author: Estelle Weyl
-Contact: firstName @ lastName dot ORG
+Contact: estelle @ weyl dot ORG
 Twitter: @estellevw
+Repo: http://estelle.github.io
 
 -->
      <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic' rel='stylesheet' type='text/css'>
    <link rel="stylesheet" href="static/screen.css" media="projection, screen"/>
    <style>
+
+.deprecated dt {
+font-weight: bold;
+margin-top: 0.5rem;
+outline: red solid 1px;
+background-color: rgba(255,255,255,0.9);
+display: inline-block;
+clear: both;
+
+}
+.deprecated.listed.wide dt {
+width: 100%;
+}
+.deprecated.listed dt {
+margin-bottom: 0;
+margin-top: 0.5rem;
+display: block;
+width: 50%;
+padding-left: 5px;
+}
+.deprecated dd {
+font-weight: normal;
+margin: 0 0 2px 0;
+}
+.deprecated dd {display: none;}
+
+.deprecated dt:hover + dd {display: inherit;}
+
+/* Transform example */
+#ABTrasform li {
+float: left;
+clear: both;
+list-style-type: none;
+width: 100%;
+}
+.y {
+float: left;
+line-height: 1.62em;
+}
+.x {
+width: 75%;
+float: right;
+margin: 0;
+position: relative;
+}
+
+.objectlink {padding-right: 30px;}
+
+
    .h1 {font-size: 80px;}
    .hoverme 		{color: red; text-decoration:underline;}
 .hoverme:hover {color: yellow;}
@@ -403,10 +453,78 @@ span.afmboth {
 <!-- Title Slide -->
 <div class="slide intro">
      <header>
-     	<h1>Transitions &amp; Animations</h1>
-     	<h2><a href="http://estelle.github.com/animation">http://estelle.github.com/animation/</a></h2>
+     	<h1>Transforms, Transitions &amp; Animations</h1>
+     	<h2><a href="http://estelle.github.io/animation/30.html">estelle.github.io/animation/30.html</a></h2>
      </header>
 </div>
+
+<!-- Transitions -->
+<div class="slide normal">
+     <header><h1>2D Transform Functions</h1></header>
+     <section class="content">
+   <dl class="deprecated listed wide">
+
+  <dt><strong>translate</strong>(&lt;length&gt;[, &lt;length&gt;])</dt>
+  <dd>specifies a 2D translation by the vector [x, y], where x is the  translation-value parameter for the x axis and y  is the optional translation value along the y axis. parameter. If <em>y</em> is not provided, y==0.</dd>
+  <dt><strong>translateX</strong>(&lt;length&gt;)</dt>
+  <dd>specifies a translation by the given amount in the X direction.</dd>
+  <dt><strong>translateY</strong>(&lt;length&gt;)</dt>
+  <dd>specifies a translation by the given amount in the Y direction.</dd>
+  <dt><strong>scale</strong>(&lt;number&gt;[, &lt;number&gt;])</dt>
+  <dd>specifies 2D scaling operation by the [sx,sy]. If sy  is not provided, sy will equal sx (growsing or shrinking with the same scale). Scale(1, 1)  or scale(1) leaves an element in it's default state. Scale(2, 2) or scale(2)  causes the element to appear twice as wide and twice as tall as its default size, taking up 4-times the original area.</dd>
+  <dt><strong>scaleX</strong>(&lt;number&gt;)</dt>
+  <dd>specifies a scale operation using the [sx, 1] scaling vector, where sx is given as the parameter.</dd>
+  <dt><strong>scaleY</strong>(&lt;number&gt;)</dt>
+  <dd>specifies a scale operation using the [1, sy] scaling vector, where sy is given as the parameter.</dd>
+  <dt><strong>rotate</strong>(&lt;angle&gt;)</dt>
+  <dd>specifies a 2D rotation by the angle specified in the parameter about the origin of the element, as defined by the <em>transform-origin</em> property. For example, rotate(90deg) would cause elements to appear rotated one-quarter of a turn in the clockwise direction.</dd>
+  <dt><strong>skewX</strong>(&lt;angle&gt;)</dt>
+  <dd>specifies a skew transformation along the X axis by the given angle.</dd>
+  <dt><strong>skewY</strong>(&lt;angle&gt;)</dt>
+  <dd>specifies a skew transformation along the Y axis by the given angle.</dd>
+    <dt><strong>matrix</strong>(&lt;num&gt;, &lt;num&gt;, &lt;num&gt;, &lt;num&gt;, &lt;num&gt;, &lt;num&gt;)</dt>
+  <dd>Generally machine generated, specifies a 2D transformation in the form of a transformation matrix of six values. matrix(a,b,c,d,e,f) is equivalent to applying the transformation matrix <strong>[a b c d e f]</strong>.</dd>
+</dl>
+     </section>
+ </div>
+
+
+<!-- example transform -->
+<div class="slide" id="gencontentlink">
+<header><h1>Multiple Tranforms</h1></header>
+<section class="content"
+<ul id="ABTrasform">
+<li><b class="y">translate</b> <pre class="x">transform: <span contenteditable="" id="Atranslate">translate(-80px, 200px);</span></pre></li>
+<li><b class="y">rotate</b> <pre class="x">transform: <span contenteditable="" id="Arotate">rotate(15deg);</span></pre></li>
+<li><b class="y">scale</b> <pre class="x">transform: <span contenteditable="" id="Ascale">scale(1.5, 2);</span></pre></li>
+<li><b class="y">skew</b> <pre class="x">transform: <span contenteditable="" id="Askew">skewX(-8deg);</span></pre></li>
+<li>multiple transforms <pre>transform: <span contenteditable="" id="Btranslate">translate(-80px, 200px)</span>
+  <span contenteditable="" id="Brotate">rotate(-15deg)</span> <span contenteditable="" id="Bscale">scale(2, 1.5)</span> <span contenteditable="" id="Bskew">skewX(8deg)</span>;</pre></li>
+</ul>
+</section>
+</div>
+
+<div class="slide">
+  <header><h1>transform-origin property</h1></header>
+    <section class="content">
+
+<p>Specifies the x and y position of the origin, relative to the transform object.</p>
+
+<ul>
+    <li>Keyword positions: left, right, bottom, top, center</li>
+    <li>Length values</li>
+    <li>Percentage values </li>
+    <li>default is 50% 50% (or center center)</li>
+    <li>Supported in all browsers that support transform. Prefixed if transform is prefixed</li>
+    </section>
+</div>
+
+<div class="slide object">
+  <header><h1>Transforms</h1></header>
+  <object data="files/transform.html"></object>
+  <a href="files/transform.html" class="objectlink" target="play">Play</a>
+ </div>
+
 
 <!-- Simplest Transition -->
 <div class="slide normal">
@@ -657,7 +775,7 @@ code:hover {
 
 <nav>
 	<ul>
-    	<li>About
+    	<li>Bad
         <ul>
             <li>Me</li>
             <li>You</li>
@@ -665,21 +783,21 @@ code:hover {
             <li>Nobody</li>
        </ul>
         </li>
-        <li>Posts
+        <li>User
         <ul>
             <li>Door Post</li>
             <li>Wall hanging</li>
             <li>Stair Banister</li>
             <li>Washington</li>
        </ul></li>
-        <li>Topics
+        <li>Experience
         <ul>
             <li>CSS3</li>
             <li>JavaScript</li>
             <li>HTML5</li>
             <li>SEO</li>
        </ul></li>
-        <li>Events
+        <li>Design
         <ul>
             <li>Party</li>
             <li>Dinner</li>
@@ -707,6 +825,15 @@ nav li:hover ul {
 }</pre>
      </section>
  </div>
+
+
+<div class="slide object">
+  <header><h1>Grok it</h1></header>
+  <object data="files/navbar.html"></object>
+  <a href="files/navbar.html" class="objectlink" target="play">Play</a>
+ </div>
+
+
 
 
  <!-- card flip -->
@@ -822,7 +949,7 @@ nav li:hover ul {
  </section>
 </div>
 
-
+<!--
  <div class="slide intro">
      <header><h1>@Keyframes</h1></header>
      <section class="content">
@@ -846,11 +973,11 @@ nav li:hover ul {
 }</pre>
 </section>
 </div>
+-->
 
 
 
-
-
+<!--
 <div class="slide">
     <header><h1>Keyframes</h1></header>
     <section class="content">
@@ -872,8 +999,8 @@ nav li:hover ul {
      </section>
 </div>
 
-
-<!-- writing while tired -->
+-->
+<!-- writing while tired
 <div class="slide">
     <header>
     	<h1>Granular animation control</h1>
@@ -903,7 +1030,7 @@ nav li:hover ul {
 </section>
 </div>
 
-
+-->
 
 <!-- making a W -->
 <div class="slide">
@@ -936,7 +1063,7 @@ nav li:hover ul {
 
 
 
-<!-- 3d transofmr -->
+<!-- 3d transofmr
 <div class="slide" id="acsst">
     <header>
     	<h1>Animating CSS Transforms</h1>
@@ -964,29 +1091,29 @@ nav li:hover ul {
 </section>
 </div>
 
+-->
 
 
-
-<!-- HEADING SLIDE -->
+<!-- HEADING SLIDE
  <div class="slide intro">
      <header><h1>But nothing is <br>
 animated yet!</h1></header>
      <section class="content">
      </section>
  </div>
-
+ -->
 
 
 <!-- base CSS -->
  <div class="slide normal">
      <header><h1>Base CSS</h1></header>
      <section class="content"><div class="pencilanim pencil" style="position: absolute;"></div>
-     <pre contenteditable><b>   .pencil {
+     <pre contenteditable><b>.pencil {
      width:100px;
      text-align: right;
      border-bottom: 10px solid;
    }
-   .pencil::after {
+ .pencil::after {
 	content: '✎';
 	position: absolute;
 	bottom: -20px;
@@ -1046,50 +1173,6 @@ animated yet!</h1></header>
 
 
 
- <!-- timing function -->
- <div class="slide" id="animtf">
-  	<b id="animationtimingfunc" class="pencil pencilanim"></b>
-    <header style="position:absolute; width: 100%;">
-    	<h1>&lsquo;animation-timing-function&rsquo;</h1>
-    </header>
-    <section class="content">
-    <pre contenteditable>.pencil { <select  onChange="changeTimingFunction(event)"><option value="linear">linear</option><option value="ease">ease</option><option value="ease-in">ease-in</option><option value="ease-out">ease-out</option><option value="ease-in-out" selected>ease-in-out</option><option value="step-start">step-start</option><option value="step-end">step-end</option><option value="steps(5, start)">steps(5, start)</option><option value="steps(5, end)">steps(5, end)</option></select>
-  <u></u>animation-name: drawALine;
-  <u></u>animation-duration: 5s;
-  <b><u></u>animation-timing-function: <span class="changer">ease-in-out</span>;</b>
-}</pre>
-
-<pre contenteditable><strong>ease</strong>           linear
-ease-in        ease-out
-ease-in-out    cubic-bezier(x1, y1, x2, y2)
-step-start <span class="notes">/* same as steps(1, start) */</span>
-step-end <span class="notes">/* same as steps(1, end) */</span>
-steps( X, start|<strong>end</strong>) <span class="notes">/* X = # of steps + when change of value occurs */</span>
-</pre>
-<p style="text-align:center"><span onClick="vendorPrefix('w', 'animtf')">-webkit-</span><span onClick="vendorPrefix('r', 'animtf')"> | </span> <span onClick="vendorPrefix('m', 'animtf')">-moz-</span> <span onClick="vendorPrefix('r', 'animtf')"> | </span> <span onClick="vendorPrefix('o', 'animtf')">-o-</span> </p>
-</section>
-
-<script defer>
- function changeTimingFunction(event){
-	 var speed = event.target.value;
-	 console.log(speed)
-	 var seconds = document.querySelectorAll("#animtf span.changer");
-	 for(var i = 0, j = seconds.length; i < j; i++){
-		 seconds[i].innerHTML = speed;
-	 }
-	 var el = document.getElementById('animationtimingfunc')
-	 el.style.webkitAnimation =
-		el.style.mozAnimation =
-		el.style.oAnimation =
-		el.style.msAnimation =
-		el.style.animation = 'drawALine 5s ' + speed;
-	// document.getElementById('animationtimingfunc').style.webkitAnimationName = 'drawALine';
-	// document.getElementById('animationtimingfunc').style.webkitAnimationTimingFunction = speed;
- }
-</script>
-    </div>
-
-
 
 
  <!-- count -->
@@ -1106,7 +1189,6 @@ steps( X, start|<strong>end</strong>) <span class="notes">/* X = # of steps + wh
   ...
   <u></u>animation-name: drawALine;
   <u></u>animation-duration: 3s;
-  <u></u>animation-timing-function: ease-in-out;
   <b><u></u>animation-iteration-count: 3;</b>
 }</pre>
 <p>&lsquo;infinite&rsquo; or number. Default is &lsquo;1&rsquo;.</p>
@@ -1129,7 +1211,6 @@ steps( X, start|<strong>end</strong>) <span class="notes">/* X = # of steps + wh
     <pre contenteditable>.pencil { <input type="range" value="2" min="-10" max="10" step="0.5" id="delayrange" onChange="changeTime()" /><input type="button" onClick="changeDelay();" value="Start">
   <u></u>animation-name: drawALine;
   <u></u>animation-duration: 8s;
-  <u></u>animation-timing-function: ease-in-out;
   <u></u>animation-iteration-count: 2;
   <b><u></u>animation-delay: <span class="changer">2</span>s;</b>
 }</pre>
@@ -1150,7 +1231,7 @@ steps( X, start|<strong>end</strong>) <span class="notes">/* X = # of steps + wh
 		el.style.mozAnimation =
 		el.style.oAnimation =
 		el.style.msAnimation =
-		el.style.animation  = "drawALine 8s ease-in-out " + speed + 's 2';
+		el.style.animation  = "drawALine 8s  " + speed + 's 2';
 	 console.log(speed);
 	 var seconds = document.querySelectorAll("#animdelay span.changer");
 	 for(var i = 0, j = seconds.length; i < j; i++){
@@ -1176,7 +1257,6 @@ steps( X, start|<strong>end</strong>) <span class="notes">/* X = # of steps + wh
   ...
   <u></u>animation-name: drawALine;
   <u></u>animation-duration: 5s;
-  <u></u>animation-timing-function: ease-in-out;
   <u></u>animation-iteration-count: 5;
   <b><u></u>animation-direction: <span onClick="changeDirection('normal');" class="linky">normal</span></b>
 }</pre>
@@ -1192,11 +1272,64 @@ function changeDirection(direction){
 	el.style.mozAnimation =
 	el.style.oAnimation =
 	el.style.msAnimation =
-	el.style.animation = "drawALine 5s ease-in-out 0.1s 5 "+ direction;
+	el.style.animation = "drawALine 5s 0.1s 5 "+ direction;
 }
 
 </script>
 </div>
+
+
+
+
+ <!-- timing function -->
+ <div class="slide" id="animtf">
+    <b id="animationtimingfunc" class="pencil pencilanim"></b>
+    <header style="position:absolute; width: 100%;">
+      <h1>&lsquo;animation-timing-function&rsquo;</h1>
+    </header>
+    <section class="content">
+    <pre contenteditable>.pencil { <select  onChange="changeTimingFunction(event)"><option value="linear">linear</option><option value="ease">ease</option><option value="ease-in">ease-in</option><option value="ease-out">ease-out</option><option value="ease-in-out" selected>ease-in-out</option><option value="step-start">step-start</option><option value="step-end">step-end</option><option value="steps(5, start)">steps(5, start)</option><option value="steps(5, end)">steps(5, end)</option></select>
+  <u></u>animation-name: drawALine;
+  <u></u>animation-duration: 5s;
+  <b><u></u>animation-timing-function: <span class="changer">ease-in-out</span>;</b>
+}</pre>
+
+<pre contenteditable><strong>ease</strong>           linear
+ease-in        ease-out
+ease-in-out    cubic-bezier(x1, y1, x2, y2)
+step-start <span class="notes">/* same as steps(1, start) */</span>
+step-end <span class="notes">/* same as steps(1, end) */</span>
+steps( X, start|<strong>end</strong>) <span class="notes">/* X = # of steps + when change of value occurs */</span>
+</pre>
+<p style="text-align:center"><span onClick="vendorPrefix('w', 'animtf')">-webkit-</span><span onClick="vendorPrefix('r', 'animtf')"> | </span> <span onClick="vendorPrefix('m', 'animtf')">-moz-</span> <span onClick="vendorPrefix('r', 'animtf')"> | </span> <span onClick="vendorPrefix('o', 'animtf')">-o-</span> </p>
+</section>
+
+<script defer>
+ function changeTimingFunction(event){
+   var speed = event.target.value;
+   console.log(speed)
+   var seconds = document.querySelectorAll("#animtf span.changer");
+   for(var i = 0, j = seconds.length; i < j; i++){
+     seconds[i].innerHTML = speed;
+   }
+   var el = document.getElementById('animationtimingfunc')
+   el.style.webkitAnimation =
+    el.style.mozAnimation =
+    el.style.oAnimation =
+    el.style.msAnimation =
+    el.style.animation = 'drawALine 5s ' + speed;
+  // document.getElementById('animationtimingfunc').style.webkitAnimationName = 'drawALine';
+  // document.getElementById('animationtimingfunc').style.webkitAnimationTimingFunction = speed;
+ }
+</script>
+    </div>
+
+<div class="slide object">
+  <header><h1>Gangnam Style: Sprite Animation</h1></header>
+    <object data="files/file_steps.html"></object>
+<a href="files/file_steps.html" target="play" class="objectlink">Try it out</a>
+</div>
+
 
 
 
@@ -1384,6 +1517,16 @@ function changeDirection(direction){
 </section>
 </div>
 
+<div class="slide">
+  <header><h1>That's all we're covering here</h1></header>
+    <section class="content">
+      <p>We have a lot to cover. If you want to dig deeper, you can continue on with this deck. For an even deeper dive, checkout how <a href="../CSS-Workshop/part_10_transforms.html#slide4">CSS3 Transforms</a> and a longer <a href="index.html">CSS3 Transitions &amp; Animations</a> deck.</p>
+      <p>Continue: <a href="../snow/">Recap of all (almost) we've learned</a></p>
+      <p>Continue: <a href="../mobilecss/index.html#slide16">Mobile CSS3: Main Deck</a></p>
+      <p>Continue: <a href="../mobilecss/index2.html">Mobile CSS3: Performance Considerations</a>
+      <p>Dive deeper: <a href="../CSS-Workshop/part_10_transforms.html#slide4"> Transforms</a> | <a href="index.html">Transitions &amp; Animations</a> or right arrow.
+    </section>
+</div>
 <!--
 <div class="slide object">
   <header><h1>Animation Fill Mode</h1></header>
