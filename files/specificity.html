@@ -1,0 +1,58 @@
+
+<!DOCTYPE HTML>
+<html>
+<head>
+<style>
+head, style {display: block;}
+[contenteditable] {-webkit-user-modify: read-write-plaintext-only;}
+style:first-of-type {visibility:hidden;}
+#editme {padding: 20px; font-size: 1.5em; white-space: pre; font-family: monospace; white-space:pre; border-radius: 10px; border: 3px solid #aaa; background-color:#dedede; margin: 20px auto; width: 65%; font-family:"Courier New", Courier, monospace; float: left;}
+body {font-family:Verdana, Geneva, sans-serif; font-size:1.2em}
+
+div {
+  float: right;
+  width: 20%;
+  margin-right: 20px;
+  padding: 20px;}
+</style>
+
+<style contenteditable id="editme">
+#blue {
+  background-color: #9999ff;
+}
+div {
+  border: 5px black solid !important;
+  -webkit-animation: red infinite 1s;
+  animation: red infinite 3s alternate;
+}
+
+@-webkit-keyframes red {
+  from {
+    background-color: red;
+    border: 5px green dashed;
+  }
+  to {
+    background-color: pink;
+    border: 5px green dashed;
+  }
+}
+@keyframes red {
+  from {
+    background-color: red;
+    border: 5px green dashed;
+  }
+  to {
+    background-color: pink;
+    border: 5px green dashed;
+  }
+}
+</style>
+<title></title>
+</head>
+
+<body>
+<div id="blue"><p>Based on ID, I should be blue, but because an animation is attached, I am red.</p>
+<p>based on !important my border should be black, but some browsers override important (currrently) erroneously.</div>
+</body>
+</html>
+

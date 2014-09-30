@@ -38,6 +38,8 @@ Twitter: @estellevw
 	transform-origin: top left;
 
 }
+table.icons td {width: 20%;text-align: center; border: none; font-size: 0.6rem;}
+table.icons * {margin:0;}
 .yes, .no {
 	position: relative;
 }
@@ -219,8 +221,8 @@ nav ul ul {
 nav li:hover ul {transform: scale(1,1);}
 
 .pencilanim {
-     width:100px;
-     border-bottom: 10px solid;
+   width:100px;
+   border-bottom: 10px solid;
 	 overflow: hidden;
 	 position: relative;
 }
@@ -403,7 +405,7 @@ span.afmboth {
 <!-- Title Slide -->
 <div class="slide intro">
      <header>
-     	<h1>Transitions &amp; Animations</h1>
+     	<h1>Basic Transitions &amp; Animations Deep Dive</h1>
      	<h2><a href="http://estelle.github.com/animation">http://estelle.github.com/animation/</a></h2>
      </header>
 </div>
@@ -458,7 +460,7 @@ a:hover {
          <li class="firefox">Firefox 4/16</li>
          <li class="opera">Opera 10.5</li>
          <li class="ie new">IE 10</li>
-         <li class="txt">  &nbsp; With vendor prefix. No prefix FF16 &amp; IE10. Not OperaMini or Win&#9990;</li>
+         <li class="txt">  &nbsp; With vendor prefix for Android &lt;4.3 and IE9.</li>
      </ul>
 </section>
 </div>
@@ -542,6 +544,19 @@ code:hover {
  </div>
 
 
+<div class="slide object">
+  <header><h1>Midpoints Matter</h1></header>
+    <object data="files/nomidpoint.html"></object>
+<a href="files/nomidpoint.html" target="play" class="objectlink">Try it out!</a>
+</div>
+
+
+
+<div class="slide object">
+  <header><h1>!important it isn't</h1></header>
+    <object data="files/important.html"></object>
+<a href="files/important.html" target="play" class="objectlink">Try it out!</a>
+</div>
 
 
 <!-- what can be transitioned2? -->
@@ -570,6 +585,10 @@ code:hover {
 
      </section>
  </div>
+
+
+
+
 
 <!-- list of tranisitionable properties -->
  <div class="slide normal">
@@ -772,14 +791,23 @@ nav li:hover ul {
  <div class="slide intro">
      <header><h1>Animations</h1></header>
      <section class="content">
-     <ul class="icons" style="clear: both;">
-         <li class="chrome">Chrome</li>
-         <li class="safari">Safari</li>
-         <li class="firefox">Firefox 5/16</li>
-         <li class="opera new">Opera 12</li>
-         <li class="ie new">IE 10</li>
-         <li class="txt">  &nbsp; With vendor prefix. No prefix FF16 &amp; IE10. Not OperaMini or Win&#9990;</li>
-     </ul>
+     <table class="icons" style="clear: both;">
+        <tr>
+         <td><ul class="icons"><li  class="chrome">Chrome</li></ul></td>
+         <td><ul class="icons"><li  class="safari">Safari</li></ul></td>
+         <td><ul class="icons"><li  class="firefox">Firefox</li></ul></td>
+         <td><ul class="icons"><li  class="opera new">Opera</li></ul></td>
+         <td><ul class="icons"><li  class="ie new">IE</li></ul></td>
+       </tr>
+       <tr>
+        <td>Prefix <=38</td>
+        <td>Prefix</td>
+        <td>5/16</td>
+        <td>Prefix <=26</td>
+        <td>10</td>
+       </tr>
+     </table>
+     <p>&nbsp; Only need -webkit- vendor prefix.</p>
      </section>
  </div>
 
@@ -826,22 +854,63 @@ nav li:hover ul {
  <div class="slide intro">
      <header><h1>@Keyframes</h1></header>
      <section class="content">
+      <pre contenteditable><b>@keyframes</b> ...
+
+<b>@-webkit-keyframes</b> ....</pre>
      </section>
  </div>
 
+<div class="slide">
+  <header><h1>Name your keyframe animation</h1></header>
+    <section class="content">
+    <pre contenteditable>@keyframes <b>clever_name_here</b> ...
+
+@-webkit-keyframes <b>clever_name_here</b> ...</pre>
+      <ul>
+        <li>Identifier
+        <li>Unquoted
+        <li>Characters [a-zA-Z0-9], -, _ and ISO 10646 characters U+00A0 and higher
+        <li>ISO 10646 = Universal Character Set = Unicode standard
+        <li>[-_a-zA-Z0-9\u00A0-\u10FFFF]
+        <li>Can't start [0-9], -- , or hyphen+digit
+        <li>Can contain escaped: <br/>Q&A! may be written as Q\&A\! or Q\26 A\21
+      </ul>
+<p>Don't use keyterms!</p>
+    </section>
+</div>
+
+<div class="slide object">
+  <header><h1>What's in a name?</h1></header>
+    <object data="files/name.html"></object>
+<a href="files/name.html" target="play" class="objectlink">Try it out!</a>
+</div>
+
+
+ <div class="slide">
+     <header><h1>at-rule</h1></header>
+     <section class="content">
+      <pre contenteditable>@keyframes slides <b>{</b>
+
+<b>}</b>
+
+@-webkit-keyframes slides <b>{</b>
+
+<b>}</b></pre>
+     </section>
+ </div>
 
 <div class="slide">
      <header><h1>Keyframes</h1></header>
      <section class="content">
      <b class="pencil pencil_01">✎</b>
-     <pre contenteditable><b>@keyframes</b> <b>writing</b> {
+     <pre contenteditable>@keyframes writing {
 
     <b>from</b> {
-      left: 0;
+      <i>left: 0;</i>
     }
 
     <b>to</b> {
-      left: 100%;
+      <i>left: 100%;</i>
     }
 }</pre>
 </section>
@@ -873,6 +942,11 @@ nav li:hover ul {
 </div>
 
 
+<div class="slide object">
+  <header><h1>0% and 100%</h1></header>
+    <object data="files/no0or100.html"></object>
+<a href="files/no0or100.html" target="play" class="objectlink">Try it out!</a>
+</div>
 <!-- writing while tired -->
 <div class="slide">
     <header>
@@ -917,14 +991,11 @@ nav li:hover ul {
       <b>left:</b> 0;
       <b>top:</b> 0;
     }
-    25% {
+    25%, 75% {
       <b>top:</b> 400px;
     }
     50% {
       <b>top:</b> 50px;
-    }
-    75% {
-      <b>top:</b> 400px;
     }
     100% {
       <b>left:</b> 80%;
@@ -935,8 +1006,13 @@ nav li:hover ul {
 </div>
 
 
+<div class="slide object">
+  <header><h1>Duplicated Keyframes?</h1></header>
+    <object data="files/repeated_keyframe.html"></object>
+<a href="files/repeated_keyframe.html" target="play" class="objectlink">Try it out!</a>
+</div>
 
-<!-- 3d transofmr -->
+<!-- 3d transofmr
 <div class="slide" id="acsst">
     <header>
     	<h1>Animating CSS Transforms</h1>
@@ -959,7 +1035,7 @@ nav li:hover ul {
   }
 }
 </pre>
-<p style="text-align:center"><span onClick="vendorPrefix('w', 'acsst')">-webkit-</span><span onClick="vendorPrefix('r', 'acsst')"> | </span> <span onClick="vendorPrefix('m', 'acsst')">-moz-</span> | <span onClick="vendorPrefix('o', 'acsst')">-o-</span> </p>
+<p style="text-align:center"><span onClick="vendorPrefix('w', 'acsst')">-webkit-</span> | <span onClick="vendorPrefix('r', 'acsst')"> reset </p>
 
 </section>
 </div>
@@ -1023,7 +1099,7 @@ animated yet!</h1></header>
    <b><u></u>animation-name: drawALine;
 <u></u>animation-duration: <span class="changer">3</span>s;</b>
   }</pre>
-<p style="text-align:center"><span onClick="vendorPrefix('w', 'animdur')">-webkit-</span><span onClick="vendorPrefix('r', 'animdur')"> | </span> <span onClick="vendorPrefix('m', 'animdur')">-moz-</span>  |  <span onClick="vendorPrefix('o', 'animdur')">-o-</span> </p>
+<p style="text-align:center"><span onClick="vendorPrefix('w', 'animdur')">-webkit-</span> | <span onClick="vendorPrefix('r', 'animdur')"> reset </span></p>
 </section>
 
 <script defer>
@@ -1044,7 +1120,17 @@ animated yet!</h1></header>
 </div>
 
 
+<div class="slide object">
+  <header><h1>Specificity</h1></header>
+    <object data="files/specificity.html"></object>
+<a href="files/specificity.html" target="play" class="objectlink">Try it out!</a>
+</div>
 
+<div class="slide object">
+  <header><h1>Order of Precedence</h1></header>
+    <object data="files/specificity2.html"></object>
+<a href="files/specificity2.html" target="play" class="objectlink">Try it out!</a>
+</div>
 
  <!-- timing function -->
  <div class="slide" id="animtf">
@@ -1066,7 +1152,7 @@ step-start <span class="notes">/* same as steps(1, start) */</span>
 step-end <span class="notes">/* same as steps(1, end) */</span>
 steps( X, start|<strong>end</strong>) <span class="notes">/* X = # of steps + when change of value occurs */</span>
 </pre>
-<p style="text-align:center"><span onClick="vendorPrefix('w', 'animtf')">-webkit-</span><span onClick="vendorPrefix('r', 'animtf')"> | </span> <span onClick="vendorPrefix('m', 'animtf')">-moz-</span> <span onClick="vendorPrefix('r', 'animtf')"> | </span> <span onClick="vendorPrefix('o', 'animtf')">-o-</span> </p>
+<p style="text-align:center"><span onClick="vendorPrefix('w', 'animtf')">-webkit-</span> | <span onClick="vendorPrefix('r', 'animtf')"> reset </span>  </p>
 </section>
 
 <script defer>
@@ -1110,9 +1196,7 @@ steps( X, start|<strong>end</strong>) <span class="notes">/* X = # of steps + wh
   <b><u></u>animation-iteration-count: 3;</b>
 }</pre>
 <p>&lsquo;infinite&rsquo; or number. Default is &lsquo;1&rsquo;.</p>
-<pre contenteditable><b>-webkit-animation-iteration-count: 3;</b>
-<b>-moz-animation-iteration-count: 3;</b>
-<b>-ms-animation-iteration-count: 3;</b></pre>
+<pre contenteditable><b>-webkit-animation-iteration-count: 3;</b></pre>
 <p style="text-align:center"><span onClick="vendorPrefix('w', 'animic')">-webkit-</span><span onClick="vendorPrefix('r', 'animic')"> | </span> <span onClick="vendorPrefix('m', 'animic')">-moz-</span><span onClick="vendorPrefix('r', 'animic')"> | </span> <span onClick="vendorPrefix('o', 'animic')">-o-</span> </p>
 
 </section>
@@ -1133,7 +1217,7 @@ steps( X, start|<strong>end</strong>) <span class="notes">/* X = # of steps + wh
   <u></u>animation-iteration-count: 2;
   <b><u></u>animation-delay: <span class="changer">2</span>s;</b>
 }</pre>
-<p style="text-align:center"><span onClick="vendorPrefix('w', 'animdelay')">-webkit-</span><span onClick="vendorPrefix('r', 'animdelay')"> | </span> <span onClick="vendorPrefix('m', 'animdelay')">-moz-</span> <span onClick="vendorPrefix('r', 'animdelay')"> | </span> <span onClick="vendorPrefix('o', 'animdelay')">-o-</span></p>
+<p style="text-align:center"><span onClick="vendorPrefix('w', 'animdelay')">-webkit-</span> | <span onClick="vendorPrefix('r', 'animdelay')">reset</span> </p>
 
 </section><script defer>
  function changeTime(){
@@ -1182,16 +1266,13 @@ steps( X, start|<strong>end</strong>) <span class="notes">/* X = # of steps + wh
 }</pre>
 <p>Two possible values: normal | alternate;</p>
 <pre contenteditable><b><u></u>animation-direction: <span onClick="changeDirection('alternate');" class="linky">alternate</span>;</b></pre>
-<p style="text-align:center"><span onClick="vendorPrefix('w', 'animdir')">-webkit-</span><span onClick="vendorPrefix('r', 'animdir')"> | </span> <span onClick="vendorPrefix('m', 'animdir')">-moz-</span><span onClick="vendorPrefix('r', 'animdir')"> | </span> <span onClick="vendorPrefix('o', 'animdir')">-o-</span> </p>
+<p style="text-align:center"><span onClick="vendorPrefix('w', 'animdir')">-webkit-</span> | <span onClick="vendorPrefix('r', 'animdir')"> reset </span> </p>
 
 </section>
 <script>
 function changeDirection(direction){
 	var el = document.getElementById('animationdir');
 	el.style.webkitAnimation =
-	el.style.mozAnimation =
-	el.style.oAnimation =
-	el.style.msAnimation =
 	el.style.animation = "drawALine 5s ease-in-out 0.1s 5 "+ direction;
 }
 
@@ -1222,11 +1303,8 @@ function changeDirection(direction){
   <b><u></u>animation: drawALine 5s ease-in-out 100ms 5</b>;
 }</pre>
 <p style="text-align:center">
-	<span onClick="vendorPrefix('w', 'animsh')">-webkit-</span>
-    <span onClick="vendorPrefix('r', 'animsh')"> | </span>
-    <span onClick="vendorPrefix('m', 'animsh')">-moz-</span>
-    <span onClick="vendorPrefix('r', 'animsh')"> | </span>
-    <span onClick="vendorPrefix('o', 'animsh')">-o-</span>
+	<span onClick="vendorPrefix('w', 'animsh')">-webkit-</span> |
+    <span onClick="vendorPrefix('r', 'animsh')">reset</span>
  </p>
 
 </section>
@@ -1303,8 +1381,6 @@ function changeDirection(direction){
 	  console.dir(elements)
 	  for(var i = 0; i < elements.length; i++){
 		elements[i].style.webkitTransformOrigin =
-		elements[i].style.mozTransformOrigin =
-		elements[i].style.oTransformOrigin =
 		elements[i].style.msTransformOrigin =
 		elements[i].style.transformOrigin  = origin;
 	  }
@@ -1335,11 +1411,8 @@ function changeDirection(direction){
 }</pre>
 <p>. . . or . . .
 <span style="float: right; font-size: 80%">
-	<span onClick="vendorPrefix('w', 'animfm')">-webkit-</span>
-    <span onClick="vendorPrefix('r', 'animfm')"> | </span>
-    <span onClick="vendorPrefix('m', 'animfm')">-moz-</span>
-    <span onClick="vendorPrefix('r', 'animfm')"> | </span>
-    <span onClick="vendorPrefix('o', 'animfm')">-o-</span>
+	<span onClick="vendorPrefix('w', 'animfm')">-webkit-</span> |
+    <span onClick="vendorPrefix('r', 'animfm')">reset</span>
 </span>
 </p>
 <pre contenteditable>
@@ -1356,9 +1429,6 @@ function changeDirection(direction){
 
 		var el = document.getElementById('animationfm');
 		el.style.webkitAnimation =
-		el.style.mozAnimation =
-		el.style.oAnimation =
-		el.style.msAnimation =
 		el.style.animation = "drawALine 5s ease-in-out 2s " + iteration + "  "+ fillMode;
 	}
 
@@ -1423,7 +1493,7 @@ function changeDirection(direction){
   }
 }</pre>
 
-<p style="text-align:center"><span onClick="vendorPrefix('w', 'animps')">-webkit-</span><span onClick="vendorPrefix('r', 'animps')"> | </span> <span onClick="vendorPrefix('m', 'animps')">-moz-</span><span onClick="vendorPrefix('r', 'animps')"> | </span> <span onClick="vendorPrefix('o', 'animps')">-o-</span> </p>
+<p style="text-align:center"><span onClick="vendorPrefix('w', 'animps')">-webkit-</span> | <span onClick="vendorPrefix('r', 'animps')">reset</span></p>
 </section>
 </div>
 
@@ -1435,8 +1505,6 @@ function changeDirection(direction){
 <pre contenteditable>animation-play-state: paused | running</pre>
 <pre contenteditable>.pencil<b>:hover</b> {
   <b>-webkit-animation-play-state: paused;</b>
-  <b>-moz-animation-play-state: paused;</b>
-  <b>-o-animation-play-state: paused;</b>
   <b>animation-play-state: paused;</b>
   }</pre>
 </section>
@@ -1462,9 +1530,9 @@ el.addEventListener( <b>'webkitAnimationEnd'</b>,
     }, false );
 </pre>
 <ul>
-	<li>webkitAnimationStart | mozAnimationStart | oAnimationStart</li>
-	<li>webkitAnimationEnd | mozAnimationEnd | oAnimationEnd</li>
-	<li>webkitAnimationIteration | mozAnimationIteration | oAnimationIteration</li>
+	<li>webkitAnimationStart | animationStart </li>
+	<li>webkitAnimationEnd | animationEnd</li>
+	<li>webkitAnimationIteration | animationIteration </li>
 </ul>
 </section>
 </div>
@@ -1488,8 +1556,6 @@ el.addEventListener( <b>'webkitAnimationEnd'</b>,
 
 <pre contenteditable>
 webkitAnimationEnd
-mozAnimationEnd
-oAnimationEnd
 animationEnd
 </pre>
 </section>
