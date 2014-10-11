@@ -12,24 +12,23 @@ body {font-family:Verdana, Geneva, sans-serif; font-size:1.2em}
 
 div {
   padding: 20px; margin: 20px;
-  border: 5px black solid !important;
   color: white;
   font-family: sans-serif;
 }
 </style>
 
 <style contenteditable id="editme">
-div { -webkit-animation: test infinite 20s alternate;
-  animation: test infinite 20s alternate;
-  background-color: red;
+div { -webkit-animation: test infinite 10s alternate;
+  animation: test infinite 10s alternate;
+  background-color: red;  border: 1px black solid;
 }
 @-webkit-keyframes test {
-  45% { background-color: green; }
-  55% { background-color: blue; }
+  45% { background-color: green; border-width: 10px;}
+  55% { background-color: blue; border-width: 20px;}
 }
 @keyframes test {
-  45% { background-color: green; }
-  55% { background-color: blue; }
+  45% { background-color: green; border-width: 10px;}
+  55% { background-color: blue; border-width: 20px;}
 }
 </style>
 <title></title>
@@ -38,10 +37,10 @@ div { -webkit-animation: test infinite 20s alternate;
 <body>
 <div id="blue">as if written:
 <pre> @keyframes test {
-  0% { background-color: red;}
-  45% { background-color: green; }
-  55% { background-color: blue; }
-  100% { background-color: red;}
+  0% { background-color: red; border-width: 1px;}
+  45% { background-color: green; border-width: 10px; }
+  55% { background-color: blue;  border-width: 20px;}
+  100% { background-color: red; border-width: 1px;}
 }</pre></div>
 </body>
 </html>

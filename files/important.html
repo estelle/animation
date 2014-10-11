@@ -12,24 +12,24 @@ body {font-family:Verdana, Geneva, sans-serif; font-size:1.2em}
 
 div {
   padding: 20px; margin: 20px;
-  border: 5px black solid !important;
+  border: 5px black solid;
   color: white;
   font-family: sans-serif;
 }
 </style>
 
 <style contenteditable id="editme">
-div { -webkit-animation: test infinite 20s alternate;
-  animation: test infinite 20s alternate;
-  background-color: red;
+div { -webkit-animation: test infinite 10s alternate;
+  animation: test infinite 10s alternate;
+  background: red; border: 5px black solid;
 }
 @-webkit-keyframes test {
-  45% { background-color: green; }
-  55% { background-color: blue !important; }
+  45% { background: green; }
+  55% { background: blue !important; border-width: 20px !important; }
 }
 @keyframes test {
-  45% { background-color: green; }
-  55% { background-color: blue !important; }
+  45% { background: green; }
+  55% { background: blue !important;  border-width: 20px !important;}
 }
 </style>
 <title></title>

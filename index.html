@@ -459,7 +459,7 @@ a:hover {
          <li class="safari">Safari</li>
          <li class="firefox">Firefox 4/16</li>
          <li class="opera">Opera 10.5</li>
-         <li class="ie new">IE 10</li>
+         <li class="ie new">IE 9/10</li>
          <li class="txt">  &nbsp; With vendor prefix for Android &lt;4.3 and IE9.</li>
      </ul>
 </section>
@@ -544,21 +544,6 @@ code:hover {
  </div>
 
 
-<div class="slide object">
-  <header><h1>Midpoints Matter</h1></header>
-    <object data="files/nomidpoint.html"></object>
-<a href="files/nomidpoint.html" target="play" class="objectlink">Try it out!</a>
-</div>
-
-
-
-<div class="slide object">
-  <header><h1>!important it isn't</h1></header>
-    <object data="files/important.html"></object>
-<a href="files/important.html" target="play" class="objectlink">Try it out!</a>
-</div>
-
-
 <!-- what can be transitioned2? -->
  <div class="slide normal">
      <header><h1>What can be transitioned?</h1></header>
@@ -586,6 +571,13 @@ code:hover {
      </section>
  </div>
 
+
+
+<div class="slide object">
+  <header><h1>Midpoints Matter</h1></header>
+    <object data="files/nomidpoint.html"></object>
+<a href="files/nomidpoint.html" target="play" class="objectlink">Try it out!</a>
+</div>
 
 
 
@@ -629,6 +621,7 @@ code:hover {
 <li>width</li>
 <li>word-spacing</li>
 <li>z-index</li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_animated_properties" target="play">Full list</a></li>
      </ul>
      </section>
  </div>
@@ -979,6 +972,16 @@ nav li:hover ul {
 
 
 
+
+
+
+<div class="slide object">
+  <header><h1>!important it isn't</h1></header>
+    <object data="files/important.html"></object>
+<a href="files/important.html" target="play" class="objectlink">Try it out!</a>
+</div>
+
+
 <!-- making a W -->
 <div class="slide">
      <header>
@@ -1095,7 +1098,7 @@ animated yet!</h1></header>
      	<h1>animation name and duration</h1>
     </header>
     <section class="content"><div id="animationduration" class="pencil pencilanim"></div>
-	<pre contenteditable>.pencil { <input type="range" value="3" min="1" max="15" step="1" id="speedrange" onChange="changeDuration();"/>
+	<pre contenteditable>.pencil { <input type="range" value="3" min="1" max="15" step="1" id="speedrange"/>
    <b><u></u>animation-name: drawALine;
 <u></u>animation-duration: <span class="changer">3</span>s;</b>
   }</pre>
@@ -1107,17 +1110,29 @@ animated yet!</h1></header>
 	 var speed = document.getElementById('speedrange').value;
 	 var el = document.getElementById('animationduration');
 	 el.style.webkitAnimation =
-		el.style.mozAnimation =
-		el.style.oAnimation =
-		el.style.msAnimation =
 		el.style.animation =  'drawALine ' + speed + 's';
 	 var seconds = document.querySelectorAll("#animdur span.changer");
 	 for(var i = 0, j = seconds.length; i < j; i++){
 		 seconds[i].innerHTML = speed;
 	 }
  }
+ document.getElementById('speedrange').addEventListener('change', function() {
+    changeDuration();
+    setTimeout(function(){
+        document.getElementById('animationduration').setAttribute('style', '');
+      },
+      document.getElementById('speedrange').value*1000);
+  });
 </script>
 </div>
+
+
+<div class="slide object">
+  <header><h1>Order of Precedence</h1></header>
+    <object data="files/specificity2.html"></object>
+<a href="files/specificity2.html" target="play" class="objectlink">Try it out!</a>
+</div>
+
 
 
 <div class="slide object">
@@ -1126,11 +1141,13 @@ animated yet!</h1></header>
 <a href="files/specificity.html" target="play" class="objectlink">Try it out!</a>
 </div>
 
+
 <div class="slide object">
-  <header><h1>Order of Precedence</h1></header>
-    <object data="files/specificity2.html"></object>
-<a href="files/specificity2.html" target="play" class="objectlink">Try it out!</a>
+  <header><h1>!important it isn't</h1></header>
+    <object data="files/important.html"></object>
+<a href="files/important.html" target="play" class="objectlink">Try it out!</a>
 </div>
+
 
  <!-- timing function -->
  <div class="slide" id="animtf">
@@ -1139,7 +1156,7 @@ animated yet!</h1></header>
     	<h1>&lsquo;animation-timing-function&rsquo;</h1>
     </header>
     <section class="content">
-    <pre contenteditable>.pencil { <select  onChange="changeTimingFunction(event)"><option value="linear">linear</option><option value="ease">ease</option><option value="ease-in">ease-in</option><option value="ease-out">ease-out</option><option value="ease-in-out" selected>ease-in-out</option><option value="step-start">step-start</option><option value="step-end">step-end</option><option value="steps(5, start)">steps(5, start)</option><option value="steps(5, end)">steps(5, end)</option></select>
+    <pre contenteditable>.pencil { <select id="tfselect"><option value="linear">linear</option><option value="ease">ease</option><option value="ease-in">ease-in</option><option value="ease-out">ease-out</option><option value="ease-in-out" selected>ease-in-out</option><option value="step-start">step-start</option><option value="step-end">step-end</option><option value="steps(5, start)">steps(5, start)</option><option value="steps(5, end)">steps(5, end)</option></select>
   <u></u>animation-name: drawALine;
   <u></u>animation-duration: 5s;
   <b><u></u>animation-timing-function: <span class="changer">ease-in-out</span>;</b>
@@ -1163,7 +1180,7 @@ steps( X, start|<strong>end</strong>) <span class="notes">/* X = # of steps + wh
 	 for(var i = 0, j = seconds.length; i < j; i++){
 		 seconds[i].innerHTML = speed;
 	 }
-	 var el = document.getElementById('animationtimingfunc')
+	 var el = document.getElementById('animationtimingfunc');
 	 el.style.webkitAnimation =
 		el.style.mozAnimation =
 		el.style.oAnimation =
@@ -1172,6 +1189,14 @@ steps( X, start|<strong>end</strong>) <span class="notes">/* X = # of steps + wh
 	// document.getElementById('animationtimingfunc').style.webkitAnimationName = 'drawALine';
 	// document.getElementById('animationtimingfunc').style.webkitAnimationTimingFunction = speed;
  }
+
+  document.getElementById('tfselect').addEventListener('change', function(e) {
+    changeTimingFunction(e);
+    setTimeout(function(){
+        document.getElementById('animationtimingfunc').setAttribute('style', '');
+      },
+      6000);
+  });
 </script>
     </div>
 
@@ -1181,6 +1206,15 @@ steps( X, start|<strong>end</strong>) <span class="notes">/* X = # of steps + wh
     <object data="files/cubicbezier.html"></object>
 <a href="files/cubicbezier.html" target="play" class="objectlink">Try it out!</a>
 </div>
+
+<div class="slide object">
+  <header><h1>Cubic Bezier</h1></header>
+    <object data="files/cubicbezierprint.html"></object>
+<a href="files/cubicbezierprint.html" target="play" class="objectlink">Try it out!</a>
+</div>
+
+
+
 
 <div class="slide object">
   <header><h1>Steps()</h1></header>
@@ -1226,8 +1260,8 @@ steps( X, start|<strong>end</strong>) <span class="notes">/* X = # of steps + wh
 
 <div class="slide object">
   <header><h1>No Iteration?</h1></header>
-    <object data="files/noiteration.html"></object>
-<a href="files/noiteration.html" target="play" class="objectlink">Try it out!</a>
+    <object data="files/nointerations.html"></object>
+<a href="files/nointerations.html" target="play" class="objectlink">Try it out!</a>
 </div>
 
 <!-- animation delay -->
@@ -1251,17 +1285,15 @@ steps( X, start|<strong>end</strong>) <span class="notes">/* X = # of steps + wh
 	 var seconds = document.querySelectorAll("#animdelay span.changer");
 	  for(var i = 0, j = seconds.length; i < j; i++){
 		 seconds[i].innerHTML = speed;
+     var el = document.getElementById('animationdelayi');
+     el.setAttribute('style', '');
 	 }
  }
  function changeDelay(){
 	 var speed = (document.getElementById('delayrange').value * 1).toFixed(1);
 	 var el = document.getElementById('animationdelayi');
-	    el.style.webkitAnimation =
-		el.style.mozAnimation =
-		el.style.oAnimation =
-		el.style.msAnimation =
+	  el.style.webkitAnimation =
 		el.style.animation  = "drawALine 8s ease-in-out " + speed + 's 2';
-	 console.log(speed);
 	 var seconds = document.querySelectorAll("#animdelay span.changer");
 	 for(var i = 0, j = seconds.length; i < j; i++){
 		 seconds[i].innerHTML = speed;
@@ -1288,20 +1320,29 @@ steps( X, start|<strong>end</strong>) <span class="notes">/* X = # of steps + wh
   <u></u>animation-duration: 5s;
   <u></u>animation-timing-function: ease-in-out;
   <u></u>animation-iteration-count: 5;
-  <b><u></u>animation-direction: <span onClick="changeDirection('normal');" class="linky">normal</span></b>
+  <b><u></u>animation-direction: <span data-dir="normal" class="linky directionChanger">normal</span></b>
 }</pre>
-<p>Two possible values: normal | alternate;</p>
-<pre contenteditable><b><u></u>animation-direction: <span onClick="changeDirection('alternate');" class="linky">alternate</span>;</b></pre>
+<p>Two possible values: <span data-dir="normal" class="directionChanger">normal</span> | <span class="directionChanger" data-dir="alternate">alternate</span>;</p>
+<pre contenteditable><b><u></u>animation-direction: <span  onClick="changeDirection('alternate');" class="linky directionChanger">alternate</span>;</b></pre>
 <p style="text-align:center"><span onClick="vendorPrefix('w', 'animdir')">-webkit-</span> | <span onClick="vendorPrefix('r', 'animdir')"> reset </span> </p>
 
 </section>
 <script>
 function changeDirection(direction){
 	var el = document.getElementById('animationdir');
-	el.style.webkitAnimation =
-	el.style.animation = "drawALine 5s ease-in-out 0.1s 5 "+ direction;
-}
 
+  el.style.webkitAnimation =
+  el.style.animation = 'none';
+
+  var text = "drawALine 5s ease-in-out 0.1s 5 "+ direction;
+ setTimeout(function(text) {
+  el.style.webkitAnimation =
+  el.style.animation = text;}, 100);
+}
+var directionChangers = document.querySelectorAll('.directionChanger');
+for (var q = 0; q < directionChangers.count; q++){
+  directionChangers[q].addEventListener('click', changeDirection)
+}
 </script>
 </div>
 

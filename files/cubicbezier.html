@@ -23,13 +23,17 @@ article {height: 10px;
   margin: 20px 0;
   position: relative;
 }
-article:after {
+article:after, article:before {
   content: '';
-  height: 10px;
+  height: 30px;
   width: 5px;
+  top: -10px;
   position: absolute;
-  left: 498px;
+  left: 500px;
   background-color: red;
+}
+article:before {
+  left: 100px;
 }
 
 @-webkit-keyframes height {
@@ -39,8 +43,8 @@ article:after {
 </style>
 
 <style contenteditable id="editme">div {
-  -webkit-animation: height 20s cubic-bezier(0,4,1,-4) 5s both;
-  animation: height 20s cubic-bezier(0,4,1,-4) 5s both;
+  -webkit-animation: height 10s cubic-bezier(0,4,1,-4) 5s both;
+  animation: height 10s cubic-bezier(0,4,1,-4) 5s both;
 }
 @keyframes height  {
   0% {height: 100px; width: 500px;}

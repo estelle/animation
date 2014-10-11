@@ -22,28 +22,29 @@ div {
 }
 div {
   border: 5px black solid !important;
-  -webkit-animation: red infinite 1s;
-  animation: red infinite 3s alternate;
+  background-color: black !important;
+  -webkit-animation: grey infinite 1s;
+  animation: grey infinite 3s alternate;
 }
 
-@-webkit-keyframes red {
+@-webkit-keyframes grey {
   from {
-    background-color: red;
-    border: 5px green dashed;
+    background-color: #999;
+    border: 5px red dashed;
   }
   to {
-    background-color: pink;
-    border: 5px green dashed;
+    background-color: #ccc;
+    border: 5px yellow dashed;
   }
 }
-@keyframes red {
+@keyframes grey {
   from {
-    background-color: red;
-    border: 5px green dashed;
+    background-color: #999;
+    border: 5px red dashed;
   }
   to {
-    background-color: pink;
-    border: 5px green dashed;
+    background-color: #ccc;
+    border: 5px yellow dashed;
   }
 }
 </style>
@@ -51,8 +52,8 @@ div {
 </head>
 
 <body>
-<div id="blue"><p>Based on ID, I should be blue, but because an animation is attached, I am red.</p>
-<p>based on !important my border should be black, but some browsers override important (currrently) erroneously.</div>
+<div id="blue"><p>Based on ID, I should be black, but because an animation is attached, I am grey.</p>
+<p>based on !important my border should be black, but some browsers override !important (currrently erroneously, but spec is likely changing).</div>
 </body>
 </html>
 
