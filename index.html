@@ -3,7 +3,7 @@
   <head>
 
     <meta charset="utf-8" />
-    <title>Transitions &amp; Animations</title>
+    <title>Animations Deep Dive</title>
 <!--
 
 Author: Estelle Weyl
@@ -13,375 +13,9 @@ Twitter: @estellevw
 -->
      <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic' rel='stylesheet' type='text/css'>
    <link rel="stylesheet" href="static/screen.css" media="projection, screen"/>
+   <link rel="stylesheet" href="static/project.css" media="projection, screen"/>
    <style>
-   .h1 {font-size: 80px;}
-   .hoverme 		{color: red; text-decoration:underline;}
-.hoverme:hover {color: yellow;}
-.simptrans {transition:1s;}
-/*.simptrans:hover {transition:10s}*/
 
-.code {
-   color: black;
-   font-size: 85%;
-   background-color: rgba(255,255,255,0.4);
-   transition: all 2s ease-in 50ms;
-}
-.code:hover {
-   color: red;
-   background-color: rgba(255,255,255,0.9);
-}
-.code:not(.code2):hover {
-   font-size: 120%;
-}
-.code2:hover {
-	transform: scale(1.4);
-	transform-origin: top left;
-
-}
-table.icons td {width: 20%;text-align: center; border: none; font-size: 0.6rem;}
-table.icons * {margin:0;}
-.yes, .no {
-	position: relative;
-}
-.yes:after, .no:after {
-	content: '✓';
-	color:green;
-	font-size:60px;
-	position:absolute;
-	top: 5px;
-	right: 5px;
-}
-.no:after {
-	content: 'X';
-	color: red;
-	font-family: "Comic Sans MS", cursive;
-}
-
-.columns {column-count:3;
-column-gap: 0.1em;}
-.spinbox, .pencil {
-	position:relative;
-	font-size: 100px;
- 	color:red;
-  	display:block;
-	height: 140px;
-	width: 140px;
-	margin:10px auto;
-	font-size: 140px;
-	text-align:center;
-}
-.pencil, .pencil2 {
-	display: block;
-	text-align: left;
-	margin: 10px 0;
-	line-height: 140px;
-	position: absolute;
-	top: 0; left: 0;
-	transition: all 1s ease-in 50ms;
-    transform-origin: 100px 123px;
-}
-.outlined:hover {outline: 5px solid green;}
-.spinbox .dot {
-	position: absolute;
-	top: 123px;
-	left: 100px;
-	height:5px; width: 5px;
-	border-radius: 0.5em}
-.spinbox:hover .dot {
-	background-color:green;
-}
-.spin:hover {
-	transform: rotate(360deg) scale(2);
-}
-
-.pencil_01 {animation: writing 3s infinite 1s; animation-play-state:paused;}
-.pencil_03 {animation: writingDangerously 3s infinite linear; animation-play-state:paused;}
-.pencil_04 {animation: W 3s infinite linear; animation-play-state:paused;}
-.pencil_05 {animation: gettingThePencil 3s infinite; animation-play-state:paused;}
-.to {transform-origin: left 300px;}
-.slide:hover .pencil_01,
-.slide:hover .pencil_03,
-.slide:hover .pencil_04,
-.slide:hover .pencil_05,
-.slide:hover .pencil_06,
-.slide:hover .pencil_07,
-.slide:hover .pencilanim_01
- {animation-play-state:running;}
- .pencil_pausing {
-	left: 350px;
-	transform-origin: center 300px;
-	animation: writingInCircles 3s linear infinite;
-
- }
-  .pencil_pausing:hover {
-	animation-play-state:paused;
-
- }
-@keyframes writingInCircles {
-
-  100% {
-    transform:
-      rotate(360deg);
-  }
-
-}
-
-@keyframes writing {
-	0% {
-      left: 0;
-    }
-
-    100% {
-      left: 100%;
-    }
-}
-@keyframes writingDangerously {
-0% {
-      left: 0;
-    }
-
-    10% {
-      left: 45%;
-    }
-
-    90% {
-      left: 55%;
-    }
-
-    100% {
-      left: 100%;
-    }
-}
-
-@keyframes W {
-
-   0% {
-      left: 0;
-	  top: 0;
-          }
-
-    25% {
-      top: 400px;
-    }
-
-    50% {
-      top: 50px;
-    }
-
-    75% {
-      top: 400px;
-    }
-
-    100% {
-      left: 80%;
-      top: 0;
-    }
-
-}
-
-
-@keyframes gettingThePencil {
-  0%{
-    transform:
-      translate3d(0, 0, 0) rotate(0deg) scale(0.5, 0.5);
-  }
-
-  100% {
-    transform:
-      translate3d(600px, 400px, 0) rotate(80deg) scale(1.2, 1.2);
-  }
-}
-
-@keyframes drawALine {
-  0%{
-    width:0;
-	  color:green;
-  }
-
-  100% {
-    width: 100%;
-	  color:blue;
-  }
-}
-.slide nav {
-	float: left; width: 100%; margin-bottom: 20px;
-}
-.slide nav ul,.slide nav ul li  {margin: 0; padding: 0;}
-.slide nav + pre {clear: both; margin-top: 100px;}
-.slide nav ul li {list-style-type: none; background-color: red; color: white; margin:0; padding: 3px 5px; border: 1px solid #fff;}
-nav > ul > li {display: inline-block; position:relative; float: left; min-width: 120px;}
-nav ul ul {
-  transform: scale(1,0);
-  transform-origin: top center;
-  transition:0.2s linear 50ms;
-  position: absolute;
-  top: 100%; left: 0;
-  min-width: 100%;
-}
-nav li:hover ul {transform: scale(1,1);}
-
-.pencilanim {
-   width:100px;
-   border-bottom: 10px solid;
-	 overflow: hidden;
-	 position: relative;
-}
-.pencilanim::after {
-	content: '✎';
-	position: absolute;
-	bottom: -20px;
-	right: -10px;
-}
-.pencilanim_01 {
-  transform-origin: left 300px;
-  animation-name: drawALine;
-  animation-duration: 3s;
-  animation-timing-function: ease-in-out;
-  animation-iteration-count: 3;
-  animation-play-state: paused;
-}
-pre u {text-decoration:none; font-weight:bold;}
-
-.card, .carda {
-	width: 200px;
-	height: 300px;
-	border-radius: 10px;
-	margin: auto;
-	position: absolute;
-	font-size: .8em;
-	perspective: 600px;
-}
-.card:hover,
-.carda {transition: 1s ease;}
-.card .front,
-.carda .front {
-
-float: none;
-position: absolute;
-top: 0;
-left: 0;
-z-index: 900;
-width: inherit;
-height: inherit;
-	border-radius: 10px;
-	border: 10px solid #fff;
-text-align: center;
-box-shadow: 0 1px 5px rgba(0,0,0,0.9);
-transform: rotateX(0deg) rotateY(0deg);
-transform-style: preserve-3d;
-backface-visibility: hidden;
-transition: all .4s ease-in-out;
-background:
-linear-gradient(-45deg, white 25%, transparent 25%, transparent 75%, red 75%, red) 0 0,
-linear-gradient(-45deg, red 25%, transparent 25%, transparent 75%, white 75%, white) 1em 1em,
-linear-gradient(45deg, red 17%, transparent 17%, transparent 25%, red 25%, red 36%, transparent 36%, transparent 64%, red 64%, red 75%, transparent 75%, transparent 83%, red 83%) 1em 1em;
-background-color: white;
-background-size: 2em 2em;
-background-position: -1em -1em;
-
-}
-.card:hover .front {
-	z-index: 900;;
-	transform: rotateY(180deg);
-	box-shadow: 0 15px 50px rgba(0,0,0,0.2);
-}
-.card .back,
-.carda .back {
-	float: none;
-	position: absolute;
-	top: 0;
-	left: 0;
-	z-index: 800;
-	width: inherit;
-	height: inherit;
-	background: #fff;
-	text-shadow: 1px 1px 1px rgba(0,0,0,0.6);
-	transform: rotateY(-180deg);
-	transform-style: preserve-3d;
-	backface-visibility: hidden;
-	transition: all .4s ease-in-out;
-	border-radius: 10px;
-	border: 10px solid #fff;
-    box-shadow: 0 1px 5px rgba(0,0,0,0.9);
-}
-.card:hover .back {
-	z-index: 1000;
-	transform: rotateY(0);
-}
-.card:first-of-type,
-.carda:first-of-type {transform: rotate(-5deg);}
-.card:nth-of-type(2):hover,
-.carda.flipped:nth-of-type(2){transform: rotate(0) translatex(120px);}
-.card:last-of-type,
-.carda:last-of-type {transform: rotate(5deg);}
-.card:first-of-type:hover{transform: rotate(10deg) translatey(180px);}
-.carda.flipped:first-of-type{transform: rotate(-5deg) translate(240px, 25px);}
-
-.carda.flipped .front,
-.carda.unflipped .back {animation: flipme 1s linear forwards;}
-.carda.unflipped .front,
-.carda.flipped .back {animation: unflipme 1s linear both;}
-/*
-.carda.flipped:first-of-type  {animation: flipme 1s linear forwards;}
-.carda.flipped:nth-of-type(2){animation: flipme 1s linear forwards;}
-.carda.flipped:last-of-type  {animation: flipme 1s linear forwards;}
-.carda.unflipped:first-of-type {animation: flipme 1s linear -1s alternate;}
-.carda.unflipped:nth-of-type(2){animation: flipme 1s linear -1s alternate;}
-.carda.unflipped:last-of-type  {animation: flipme 1s linear -1s alternate;}
-*/
-@keyframes flipme {
-	0% {transform: rotatey(0deg)}
-	100% {transform: rotateY(-180deg);}
-}
-@keyframes unflipme {
-	0% {transform: rotatey(180deg)}
-	100% {transform: rotateY(0deg);}
-}
-
-
-
-
-.card .back, .carda .back {color:red; font-size: 50px; line-height: 300px; text-align:center;}
-.card .back:after,
-.carda .back:after  {content: 'A'; position:absolute; top: 10px; left: 10px; line-height:20px;}
-.card .back:before,
-.carda .back:before {content: 'A'; position:absolute; bottom: 10px; right: 10px; line-height:20px;}
-@keyframes showme {
-	0% {background-color:blue; transform: rotate(0deg) translate(200px, 0)}
-	50% {background-color:green;transform: rotate(22deg) translate(350px, -150px)}
-	100% {background-color: yellow; transform: rotate(45deg) translate(500px, -540px)}
-}
-@keyframes showme {
-	0% {background-color:green; transform: rotate(0deg) scale(1); left: 200px;}
-	100% {background-color: blue; transform: rotate(45deg) scale(1.5); left: 600px;}
-}
-.box {
-  padding:20px 50px;
-  position:relative;
-}
-.box span {
-  position: absolute;
-  left: 0;
-  top:20px;
-  width: 50px;
-  height:50px;
-  background-color: red;
-  animation: showme 5s linear 5s 1;
-  animation-play-state:paused;
-  transform-origin: 50% 100%;
-}
-.current:hover .box span {
-	animation-play-state: running;
-}
-span.afmforwards {
-	animation-fill-mode:forwards;
-}
-span.afmbackwards {
-	animation-fill-mode:backwards;
-}
-span.afmboth {
-	animation-fill-mode:both;
-}
 </style>
 
   </head>
@@ -407,9 +41,22 @@ span.afmboth {
      <header>
      	<h1>Basic Transitions &amp; Animations Deep Dive</h1>
      	<h2><a href="http://estelle.github.com/animation">http://estelle.github.com/animation/</a></h2>
+      <p><b>#AnimDeepDive 5</b> Just enough cowbell</p>
      </header>
 </div>
 
+
+<div class="slide normal">
+<header><h1>Hello!</h1></header>
+<section class="content">
+<h1 class="textmask">Estelle Weyl</h1>
+<h2><a href="http://www.standardista.com">www.standardista.com</a></h2>
+<h2><a href="http://www.twitter.com/estellevw">@estellevw</a></h2>
+<h2><a href="http://www.twitter.com/standardista">@standardista</a></h2>
+<div style="float:right"><img src="http://akamaicovers.oreilly.com/images/9780980846904/cat.gif" alt="HTML5 and CSS3 for the Real World"><img src="http://akamaicovers.oreilly.com/images/0636920018063/cat.gif" alt="HTML5: The Definitive Guide" style="margin: 0 20px;"/><img src="http://akamaicovers.oreilly.com/images/0636920021711/cat.gif" alt="MObile HTML5" style="margin: 0 20px;"/><img src="http://akamaicovers.oreilly.com/images/0636920025955/cat.gif" alt="Web Performance Daybook"/></div>
+<p><b>#AnimDeepDive 5</b> Just enough cowbell</p>
+</section>
+</div>
 <!-- Simplest Transition -->
 <div class="slide normal">
      <header><h1>Simplest Transition</h1></header>
@@ -1228,6 +875,22 @@ steps( X, start|<strong>end</strong>) <span class="notes">/* X = # of steps + wh
 <a href="files/file_steps.html" target="play" class="objectlink">Try it out!</a>
 </div>
 
+
+<div class="slide">
+  <header><h1>steps(4, end)</h1></header>
+    <section class="content">
+<ul class="stepsexplain">
+    <li><div></div>0%   </li>
+    <li><div></div>25%  </li>
+    <li><div></div>50%  </li>
+    <li><div></div>75%  </li>
+    <li><div></div>100% </li>
+</ul>
+
+
+    </section>
+</div>
+
  <!-- count -->
  <div class="slide" id="animic">
 
@@ -1320,28 +983,33 @@ steps( X, start|<strong>end</strong>) <span class="notes">/* X = # of steps + wh
   <u></u>animation-duration: 5s;
   <u></u>animation-timing-function: ease-in-out;
   <u></u>animation-iteration-count: 5;
-  <b><u></u>animation-direction: <span data-dir="normal" class="linky directionChanger">normal</span></b>
+  <b><u></u>animation-direction: <span id="dir_direction" class="linky">normal</span></b>
 }</pre>
-<p>Two possible values: <span data-dir="normal" class="directionChanger">normal</span> | <span class="directionChanger" data-dir="alternate">alternate</span>;</p>
-<pre contenteditable><b><u></u>animation-direction: <span  onClick="changeDirection('alternate');" class="linky directionChanger">alternate</span>;</b></pre>
+<p>4 possible values: <span data-dir="normal" class="directionChanger">normal</span> | <span class="directionChanger" data-dir="alternate">alternate</span> | <span class="directionChanger" data-dir="reverse">reverse</span> | <span class="directionChanger" data-dir="alternate-reverse">alternate-reverse</span>;</p>
+<pre contenteditable><b><u></u>animation-direction: <span  class="linky directionChanger">alternate</span>;</b></pre>
 <p style="text-align:center"><span onClick="vendorPrefix('w', 'animdir')">-webkit-</span> | <span onClick="vendorPrefix('r', 'animdir')"> reset </span> </p>
 
 </section>
 <script>
-function changeDirection(direction){
-	var el = document.getElementById('animationdir');
 
-  el.style.webkitAnimation =
-  el.style.animation = 'none';
+var _directionChangers = document.querySelectorAll('.directionChanger');
+var _direction;
+for (var q = 0; q < _directionChangers.length; q++){
+  _directionChangers[q].addEventListener('click', function(e){
 
-  var text = "drawALine 5s ease-in-out 0.1s 5 "+ direction;
- setTimeout(function(text) {
-  el.style.webkitAnimation =
-  el.style.animation = text;}, 100);
-}
-var directionChangers = document.querySelectorAll('.directionChanger');
-for (var q = 0; q < directionChangers.count; q++){
-  directionChangers[q].addEventListener('click', changeDirection)
+  var el = document.getElementById('animationdir');
+  _direction = e.target.getAttribute('data-dir');
+  document.getElementById('dir_direction').text = _direction;
+
+  el.style.webkitAnimation = el.style.animation = 'none';
+
+  setTimeout(function() {
+    var text = "drawALine 5s ease-in-out 0.1s 5 "+ _direction;
+    el.style.webkitAnimation = el.style.animation = text;
+    console.log(text);
+  }, 100);
+
+  })
 }
 </script>
 </div>
@@ -1597,9 +1265,9 @@ el.addEventListener( <b>'webkitAnimationEnd'</b>,
     }, false );
 </pre>
 <ul>
-	<li>webkitAnimationStart | animationStart </li>
-	<li>webkitAnimationEnd | animationEnd</li>
-	<li>webkitAnimationIteration | animationIteration </li>
+	<li>webkitAnimationStart | animationstart </li>
+	<li>webkitAnimationEnd | animationend</li>
+	<li>webkitAnimationIteration | animationiteration </li>
 </ul>
 </section>
 </div>
@@ -1623,7 +1291,7 @@ el.addEventListener( <b>'webkitAnimationEnd'</b>,
 
 <pre contenteditable>
 webkitAnimationEnd
-animationEnd
+animationend
 </pre>
 </section>
 </div>
@@ -1638,6 +1306,7 @@ animationEnd
 <h2><a href="http://www.twitter.com/estellevw">@estellevw</a></h2>
 <h2><a href="http://www.twitter.com/standardista">@standardista</a></h2>
 <div style="float:right"><img src="http://akamaicovers.oreilly.com/images/9780980846904/cat.gif" alt="HTML5 and CSS3 for the Real World"><img src="http://akamaicovers.oreilly.com/images/0636920018063/cat.gif" alt="HTML5: The Definitive Guide" style="margin: 0 20px;"/><img src="http://akamaicovers.oreilly.com/images/0636920021711/cat.gif" alt="MObile HTML5" style="margin: 0 20px;"/><img src="http://akamaicovers.oreilly.com/images/0636920025955/cat.gif" alt="Web Performance Daybook"/></div>
+<p><b>#AnimDeepDive 5</b> Sooooo much cowbell</p>
 </section>
 </div>
 
@@ -1671,7 +1340,6 @@ animationEnd
 
 
   </div>
-  <script src="static/prefixfree.js"></script>
 
 <script>
 function vendorPrefix(prefix, id){
