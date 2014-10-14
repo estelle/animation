@@ -1,6 +1,6 @@
    .h1 {font-size: 80px;}
-   .hoverme     {color: red; text-decoration:underline;}
-.hoverme:hover {color: yellow;}
+   .hoverme     {color: green; text-decoration:underline;}
+.hoverme:hover {color: orange;}
 .simptrans {transition:1s;}
 /*.simptrans:hover {transition:10s}*/
 
