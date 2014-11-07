@@ -57,60 +57,7 @@ body {
   top: 0px;
   display: block;
   overflow: hidden;
-  background-image:
-  	repeating-linear-gradient(135deg,
-	    yellow 0,
-		yellow 1px,
-		green 1px,
-		green 9px,
-		yellow 9px,
-		yellow 10px,
-		red 10px,
-		red 11px,
-		transparent 11px,
-		transparent 40px),
-	repeating-linear-gradient(45deg,
-	    yellow 0,
-		yellow 1px,
-		green 1px,
-		green 9px,
-		yellow 9px,
-		yellow 10px,
-		red 10px,
-		red 11px,
-		transparent 11px,
-		transparent 40px),
-	repeating-linear-gradient(45deg,
-		transparent 0px,
-		transparent 15px,
-		black 15px,
-		black 25px,
-		transparent 25px,
-		transparent 40px),
-	repeating-linear-gradient(135deg,
-		transparent 0px,
-		transparent 15px,
-		green 15px,
-		green 25px,
-		transparent 25px,
-		transparent 40px),
-	repeating-linear-gradient(135deg,
-		transparent 0px,
-		transparent 15px,
-		black 15px,
-		black 25px,
-		transparent 25px,
-		transparent 40px),
-	repeating-linear-gradient(45deg,
-		transparent 0px,
-		transparent 15px,
-		green 15px,
-		green 25px,
-		transparent 25px,
-		transparent 40px)
-		;
-  -webkit-background-size: 450px 450px;
-	background-color: black;
+  background-color: #333;
 }
 
 .slides {
@@ -145,7 +92,7 @@ body {
   left: 50%;
   top: 50%;
   background-color: rgba(255,255,255,0.9);
-  border-radius: 60px;
+  border-radius: 3px;
   margin-top: -350px;
   -webkit-transition: all 0.25s ease-in-out;
   -moz-transition: all 0.25s ease-in-out;
