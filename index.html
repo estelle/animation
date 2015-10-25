@@ -11,9 +11,8 @@ Contact: firstName @ lastName dot ORG
 Twitter: @estellevw
 
 -->
-     <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic' rel='stylesheet' type='text/css'>
-   <link rel="stylesheet" href="static/screen.css" media="projection, screen"/>
-   <link rel="stylesheet" href="static/project.css" media="projection, screen"/>
+     <link href='https://fonts.googleapis.com/css?family=Sanchez' rel='stylesheet'>
+   <link rel="stylesheet" href="static/css/style.css" media="projection, screen"/>
    <style>
 
 </style>
@@ -39,23 +38,29 @@ Twitter: @estellevw
 <!-- Title Slide -->
 <div class="slide intro">
      <header>
-     	<h1>Basic Transitions &amp; Animations Deep Dive</h1>
-     	<h2><a href="http://estelle.github.io/animation">http://estelle.github.io/animation/</a></h2>
+     	<h1>Animation Deep Dive</h1>
      </header>
+
+      <h2><a href="http://estelle.github.io/animation">http://estelle.github.io/animation/</a></h2>
+      <div class="homepencil">✎</div>
 </div>
 
 
 <div class="slide normal">
-<header><h1>Hello!</h1></header>
+<header><h1>Estelle Weyl</h1></header>
 <section class="content">
-<h1 class="textmask">Estelle Weyl</h1>
 <h2><a href="http://www.standardista.com">www.standardista.com</a></h2>
 <h2><a href="http://www.twitter.com/estellevw">@estellevw</a></h2>
 <h2><a href="http://www.twitter.com/standardista">@standardista</a></h2>
 <div style="float:right"><img src="http://akamaicovers.oreilly.com/images/9780980846904/cat.gif" alt="HTML5 and CSS3 for the Real World"><img src="http://akamaicovers.oreilly.com/images/0636920018063/cat.gif" alt="HTML5: The Definitive Guide" style="margin: 0 20px;"/><img src="http://akamaicovers.oreilly.com/images/0636920021711/cat.gif" alt="MObile HTML5" style="margin: 0 20px;"/><img src="http://akamaicovers.oreilly.com/images/0636920025955/cat.gif" alt="Web Performance Daybook"/></div>
-<p><b>#AnimDeepDive 5</b> Just enough cowbell</p>
 </section>
 </div>
+
+<div class="slide intro">
+<header><h1>#AnimDeepDive</h1></header>
+<h2>Needs more cowbell</h2>
+</div>
+
 <!-- Simplest Transition -->
 <div class="slide normal">
      <header><h1>Simplest Transition</h1></header>
@@ -101,13 +106,11 @@ a:hover {
 <li><em>transition:</em> shorthand for 4  transition properties</li>
 </ul>
 <ul class="icons" style="clear: both;">
-         <li class="chrome">Chrome 4/26</li>
-         <li class="safari">Safari 3.1/6.1</li>
+         <li class="chrome">Chrome</li>
+         <li class="safari">Safari</li>
          <li class="firefox">Firefox 4/16</li>
-         <li class="opera">Opera 10.5/12.1</li>
+         <li class="opera">Opera 10.5</li>
          <li class="ie">IE 10</li>
-         <li class="txt">  &nbsp; With vendor prefix for Android &lt;4.3.</li>
-     </ul>
 </section>
 </div>
 
@@ -190,6 +193,8 @@ code:hover {
  </div>
 
 
+
+
 <!-- what can be transitioned2? -->
  <div class="slide normal">
      <header><h1>What can be transitioned?</h1></header>
@@ -217,57 +222,45 @@ code:hover {
      </section>
  </div>
 
-
-
-<div class="slide object">
-  <header><h1>Midpoints Matter</h1></header>
-    <object data="files/nomidpoint.html"></object>
-<a href="files/nomidpoint.html" target="play" class="objectlink">Try it out!</a>
-</div>
-
-
-
-
 <!-- list of tranisitionable properties -->
  <div class="slide normal">
      <header><h1>Transitionable Properties</h1></header>
      <section class="content">
      <ul class="columns">
-     <li>background-color</li>
-<li>background-position</li>
-<li>border-color</li>
-<li>border-width</li>
-<li>border-spacing</li>
-<li>bottom</li>
-<li>clip</li>
-<li>color</li>
-<li>crop</li>
-<li>font-size</li>
-<li>font-weight</li>
-<li>height</li>
-<li>left</li>
-<li>letter-spacing</li>
-<li>line-height</li>
-<li>margin</li>
-<li>max-height</li>
-<li>max-width</li>
-<li>min-height</li>
-<li>min-width</li>
-<li>opacity</li>
-<li>outline-color</li>
-<li>outline-offset</li>
-<li>outline-width</li>
-<li>padding</li>
-<li>right</li>
-<li>text-indent</li>
-<li>text-shadow</li>
-<li>top</li>
-<li>vertical-align</li>
-<li>visibility</li>
-<li>width</li>
-<li>word-spacing</li>
-<li>z-index</li>
-<li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_animated_properties" target="play">Full list</a></li>
+        <li>background-color</li>
+        <li>background-position</li>
+        <li>border-color</li>
+        <li>border-width</li>
+        <li>border-spacing</li>
+        <li>bottom</li>
+        <li>clip</li>
+        <li>color</li>
+        <li>crop</li>
+        <li>font-size</li>
+        <li>font-weight</li>
+        <li>height</li>
+        <li>left</li>
+        <li>letter-spacing</li>
+        <li>line-height</li>
+        <li>margin</li>
+        <li>max-height</li>
+        <li>max-width</li>
+        <li>min-height</li>
+        <li>min-width</li>
+        <li>opacity</li>
+        <li>outline-color</li>
+        <li>outline-offset</li>
+        <li>outline-width</li>
+        <li>padding</li>
+        <li>right</li>
+        <li>text-indent</li>
+        <li>text-shadow</li>
+        <li>top</li>
+        <li>vertical-align</li>
+        <li>visibility</li>
+        <li>width</li>
+        <li>word-spacing</li>
+        <li>z-index</li>
      </ul>
      </section>
  </div>
@@ -298,15 +291,28 @@ code:hover {
      <header><h1>Transition Features (or Limitations)</h1></header>
      <section class="content">
 <ul>
-	<li>Single Iteration</li>
+  <li>Single Iteration</li>
     <li>Reverse goes to initial state</li>
     <li>No granular control</li>
     <li>Limited methods of initiation</li>
     <li>Can't force them to finish</li>
 </ul>
      </section>
- </div>
+ </div
 
+
+
+<!-- Tranform Features (or Limitations) -->
+  <div class="slide normal">
+     <header><h1><code>transitionend</code> event</h1></header>
+     <section class="content">
+<ul>
+  <li>Event thrown only when transition completes</li>
+    <li><code>transitionend</code> for EVERY property</li>
+    <li><code>transitionend</code> for each long-hand property within a shorthand</li>
+</ul>
+     </section>
+ </div>
 
 <!-- Useful example -->
 <div class="slide normal">
@@ -314,8 +320,8 @@ code:hover {
      <section class="content" style="min-height: 400px;">
 
 <nav>
-	<ul>
-    	<li>About
+  <ul>
+      <li>About
         <ul>
             <li>Me</li>
             <li>You</li>
@@ -427,26 +433,27 @@ nav li:hover ul {
 
 
 
+
  <div class="slide intro">
      <header><h1>Animations</h1></header>
      <section class="content">
-     <table class="icons" style="clear: both;">
+     <table class="icons" style="clear: both; margin: 50px auto;">
         <tr>
          <td><ul class="icons"><li  class="chrome">Chrome</li></ul></td>
          <td><ul class="icons"><li  class="safari">Safari</li></ul></td>
          <td><ul class="icons"><li  class="firefox">Firefox</li></ul></td>
-         <td><ul class="icons"><li  class="opera new">Opera</li></ul></td>
-         <td><ul class="icons"><li  class="ie new">IE</li></ul></td>
+         <td><ul class="icons"><li  class="opera">Opera</li></ul></td>
+         <td><ul class="icons"><li  class="ie">IE</li></ul></td>
        </tr>
        <tr>
-        <td>Prefix <=38</td>
-        <td>Prefix</td>
-        <td>5/16</td>
-        <td>Prefix <=26</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
         <td>10</td>
        </tr>
      </table>
-     <p>&nbsp; Only need -webkit- vendor prefix.</p>
+     <p>&nbsp; Prefix -webkit- for &lt; iOS9 / Safari 9 and Android &lt;= 4.4.4.</p>
      </section>
  </div>
 
@@ -564,7 +571,6 @@ nav li:hover ul {
     <section class="content">
      <b class="pencil pencil_01">✎</b>
     <pre contenteditable>@keyframes writing {
-
     <b>0%</b> {
       left: 0;
     }
@@ -572,7 +578,6 @@ nav li:hover ul {
     <b>100%</b> {
       left: 100%;
     }
-
 }</pre>
 
 	<p>Don't forget the <b class="imp" style="border-bottom:double 3px;">%</b></p>
@@ -594,7 +599,6 @@ nav li:hover ul {
     <section class="content">
      <b class="pencil pencil_03">✎</b>
     <pre contenteditable>@keyframes writingWhileTired {
-
     <b>0%</b> {
       left: 0;
     }
@@ -610,7 +614,6 @@ nav li:hover ul {
     <b>100%</b> {
       left: 100%;
     }
-
 }
 </pre>
 </section>
@@ -694,10 +697,8 @@ nav li:hover ul {
 
 <!-- HEADING SLIDE -->
  <div class="slide intro">
-     <header><h1>But nothing is <br>
+     <header style="margin-top: 25%; box-shadow: -1px -1px 1px rgba(0,0,0,0.2), 1px 1px 1px rgba(0,0,0,0.2)"><h1>But nothing is <br>
 animated yet!</h1></header>
-     <section class="content">
-     </section>
  </div>
 
 
@@ -706,7 +707,7 @@ animated yet!</h1></header>
  <div class="slide normal">
      <header><h1>Base CSS</h1></header>
      <section class="content"><div class="pencilanim pencil" style="position: absolute;"></div>
-     <pre contenteditable><b>   .pencil {
+     <pre contenteditable style="line-height: 1.1"><b>   .pencil {
      width:100px;
      text-align: right;
      border-bottom: 10px solid;
@@ -748,19 +749,16 @@ animated yet!</h1></header>
    <b><u></u>animation-name: drawALine;
 <u></u>animation-duration: <span class="changer">3</span>s;</b>
   }</pre>
-<p style="text-align:center"><span onClick="vendorPrefix('w', 'animdur')">-webkit-</span> | <span onClick="vendorPrefix('r', 'animdur')"> reset </span></p>
 </section>
-
 <script defer>
  function changeDuration(){
-	 var speed = document.getElementById('speedrange').value;
-	 var el = document.getElementById('animationduration');
-	 el.style.webkitAnimation =
-		el.style.animation =  'drawALine ' + speed + 's';
-	 var seconds = document.querySelectorAll("#animdur span.changer");
-	 for(var i = 0, j = seconds.length; i < j; i++){
-		 seconds[i].innerHTML = speed;
-	 }
+   var speed = document.getElementById('speedrange').value;
+   var el = document.getElementById('animationduration');
+   el.style.animation =  'drawALine ' + speed + 's';
+   var seconds = document.querySelectorAll("#animdur span.changer");
+   for(var i = 0, j = seconds.length; i < j; i++){
+     seconds[i].innerHTML = speed;
+   }
  }
  document.getElementById('speedrange').addEventListener('change', function() {
     changeDuration();
@@ -797,16 +795,26 @@ animated yet!</h1></header>
 
  <!-- timing function -->
  <div class="slide" id="animtf">
-  	<b id="animationtimingfunc" class="pencil pencilanim"></b>
     <header style="position:absolute; width: 100%;">
     	<h1>&lsquo;animation-timing-function&rsquo;</h1>
     </header>
     <section class="content">
-    <pre contenteditable>.pencil { <select id="tfselect"><option value="linear">linear</option><option value="ease">ease</option><option value="ease-in">ease-in</option><option value="ease-out">ease-out</option><option value="ease-in-out" selected>ease-in-out</option><option value="step-start">step-start</option><option value="step-end">step-end</option><option value="steps(5, start)">steps(5, start)</option><option value="steps(5, end)">steps(5, end)</option></select>
+    <b id="animationtimingfunc" class="pencil pencilanim"></b>
+    <pre contenteditable>.pencil { 
   <u></u>animation-name: drawALine;
   <u></u>animation-duration: 5s;
   <b><u></u>animation-timing-function: <span class="changer">ease-in-out</span>;</b>
-}</pre>
+}</pre><select id="tfselect">
+    <option value="linear">linear</option>
+    <option value="ease">ease</option>
+    <option value="ease-in">ease-in</option>
+    <option value="ease-out">ease-out</option>
+    <option value="ease-in-out" selected>ease-in-out</option>
+    <option value="step-start">step-start</option>
+    <option value="step-end">step-end</option>
+    <option value="steps(5, start)">steps(5, start)</option>
+    <option value="steps(5, end)">steps(5, end)</option>
+    </select>
 
 <pre contenteditable><strong>ease</strong>           linear
 ease-in        ease-out
@@ -815,7 +823,6 @@ step-start <span class="notes">/* same as steps(1, start) */</span>
 step-end <span class="notes">/* same as steps(1, end) */</span>
 steps( X, start|<strong>end</strong>) <span class="notes">/* X = # of steps + when change of value occurs */</span>
 </pre>
-<p style="text-align:center"><span onClick="vendorPrefix('w', 'animtf')">-webkit-</span> | <span onClick="vendorPrefix('r', 'animtf')"> reset </span>  </p>
 </section>
 
 <script defer>
@@ -827,13 +834,7 @@ steps( X, start|<strong>end</strong>) <span class="notes">/* X = # of steps + wh
 		 seconds[i].innerHTML = speed;
 	 }
 	 var el = document.getElementById('animationtimingfunc');
-	 el.style.webkitAnimation =
-		el.style.mozAnimation =
-		el.style.oAnimation =
-		el.style.msAnimation =
 		el.style.animation = 'drawALine 5s ' + speed;
-	// document.getElementById('animationtimingfunc').style.webkitAnimationName = 'drawALine';
-	// document.getElementById('animationtimingfunc').style.webkitAnimationTimingFunction = speed;
  }
 
   document.getElementById('tfselect').addEventListener('change', function(e) {
@@ -909,7 +910,6 @@ steps( X, start|<strong>end</strong>) <span class="notes">/* X = # of steps + wh
 }</pre>
 <p>&lsquo;infinite&rsquo; or number. Default is &lsquo;1&rsquo;.</p>
 <pre contenteditable><b>-webkit-animation-iteration-count: 3;</b></pre>
-<p style="text-align:center"><span onClick="vendorPrefix('w', 'animic')">-webkit-</span><span onClick="vendorPrefix('r', 'animic')"> | </span> <span onClick="vendorPrefix('m', 'animic')">-moz-</span><span onClick="vendorPrefix('r', 'animic')"> | </span> <span onClick="vendorPrefix('o', 'animic')">-o-</span> </p>
 
 </section>
 </div>
@@ -939,7 +939,6 @@ steps( X, start|<strong>end</strong>) <span class="notes">/* X = # of steps + wh
   <u></u>animation-iteration-count: 2;
   <b><u></u>animation-delay: <span class="changer">2</span>s;</b>
 }</pre>
-<p style="text-align:center"><span onClick="vendorPrefix('w', 'animdelay')">-webkit-</span> | <span onClick="vendorPrefix('r', 'animdelay')">reset</span> </p>
 
 </section><script defer>
  function changeTime(){
@@ -954,7 +953,6 @@ steps( X, start|<strong>end</strong>) <span class="notes">/* X = # of steps + wh
  function changeDelay(){
 	 var speed = (document.getElementById('delayrange').value * 1).toFixed(1);
 	 var el = document.getElementById('animationdelayi');
-	  el.style.webkitAnimation =
 		el.style.animation  = "drawALine 8s ease-in-out " + speed + 's 2';
 	 var seconds = document.querySelectorAll("#animdelay span.changer");
 	 for(var i = 0, j = seconds.length; i < j; i++){
@@ -974,8 +972,8 @@ steps( X, start|<strong>end</strong>) <span class="notes">/* X = # of steps + wh
     <header>
     	<h1>&lsquo;animation-direction&rsquo;</h1>
     </header>
-    <b id="animationdir" class="pencil pencilanim"></b>
     <section class="content">
+    <b id="animationdir" class="pencil pencilanim"></b>
     <pre contenteditable>.pencil {
   ...
   <u></u>animation-name: drawALine;
@@ -984,9 +982,8 @@ steps( X, start|<strong>end</strong>) <span class="notes">/* X = # of steps + wh
   <u></u>animation-iteration-count: 5;
   <b><u></u>animation-direction: <span id="dir_direction" class="linky">normal</span></b>
 }</pre>
-<p>4 possible values: <span data-dir="normal" class="directionChanger">normal</span> | <span class="directionChanger" data-dir="alternate">alternate</span> | <span class="directionChanger" data-dir="reverse">reverse</span> | <span class="directionChanger" data-dir="alternate-reverse">alternate-reverse</span>;</p>
+<p>values: <span data-dir="normal" class="directionChanger">normal</span> | <span class="directionChanger" data-dir="alternate">alternate</span> | <span class="directionChanger" data-dir="reverse">reverse</span> | <span class="directionChanger" data-dir="alternate-reverse">alternate-reverse</span>;</p>
 <pre contenteditable><b><u></u>animation-direction: <span  class="linky directionChanger">alternate</span>;</b></pre>
-<p style="text-align:center"><span onClick="vendorPrefix('w', 'animdir')">-webkit-</span> | <span onClick="vendorPrefix('r', 'animdir')"> reset </span> </p>
 
 </section>
 <script>
@@ -1036,10 +1033,7 @@ for (var q = 0; q < _directionChangers.length; q++){
 .pencil {
   <b><u></u>animation: drawALine 5s ease-in-out 100ms 5</b>;
 }</pre>
-<p style="text-align:center">
-	<span onClick="vendorPrefix('w', 'animsh')">-webkit-</span> |
-    <span onClick="vendorPrefix('r', 'animsh')">reset</span>
- </p>
+
 
 </section>
 </div>
@@ -1143,15 +1137,9 @@ for (var q = 0; q < _directionChangers.length; q++){
   <u></u>animation-delay: 2s;
  <b><u></u>animation-fill-mode: none;</b>
 }</pre>
-<p>. . . or . . .
-<span style="float: right; font-size: 80%">
-	<span onClick="vendorPrefix('w', 'animfm')">-webkit-</span> |
-    <span onClick="vendorPrefix('r', 'animfm')">reset</span>
-</span>
-</p>
 <pre contenteditable>
 .pencil {
-<u></u>animation: gettingThePencil 3s ease-in-out 1s <b id="fmitcountres"></b>  <b id="fmsh">forwards</b>;
+  animation: gettingThePencil 3s ease-in-out 1s <b id="fmitcountres"></b> <b id="fmsh">forwards</b>;
 }</pre>
 
 </section>
@@ -1227,7 +1215,6 @@ for (var q = 0; q < _directionChangers.length; q++){
   }
 }</pre>
 
-<p style="text-align:center"><span onClick="vendorPrefix('w', 'animps')">-webkit-</span> | <span onClick="vendorPrefix('r', 'animps')">reset</span></p>
 </section>
 </div>
 
@@ -1238,7 +1225,6 @@ for (var q = 0; q < _directionChangers.length; q++){
 <b class="pencil pencil_pausing outlined">✎</b>
 <pre contenteditable>animation-play-state: paused | running</pre>
 <pre contenteditable>.pencil<b>:hover</b> {
-  <b>-webkit-animation-play-state: paused;</b>
   <b>animation-play-state: paused;</b>
   }</pre>
 </section>
@@ -1258,16 +1244,12 @@ for (var q = 0; q < _directionChangers.length; q++){
 	<li>animationiteration</li>
 </ul>
 <pre contenteditable>
-el.addEventListener( <b>'webkitAnimationEnd'</b>,
+el.addEventListener( <b>'animationend'</b>,
     function( event ) {
         console.log('Animation Ended');
     }, false );
 </pre>
-<ul>
-	<li>webkitAnimationStart | animationstart </li>
-	<li>webkitAnimationEnd | animationend</li>
-	<li>webkitAnimationIteration | animationiteration </li>
-</ul>
+
 </section>
 </div>
 
@@ -1280,7 +1262,7 @@ el.addEventListener( <b>'webkitAnimationEnd'</b>,
 <header><h1>Starting next animation at end of previous</h1></header>
 <section class="content">
 
-<pre contenteditable>el.addEventListener( <b>'webkitAnimationEnd'</b>,
+<pre contenteditable>el.addEventListener( <b>'animationend'</b>,
     function( event ) {
         el.removeClassName('newClass');
         setTimeout("el.addClassName('newClass')", 100ms)
@@ -1305,7 +1287,7 @@ animationend
 <!-- Thank you -->
 <div class="slide normal">
 <header><h1>Thanks</h1></header>
-<section class="content">
+<section class="content" style="line-height: 1.2">
 <h1 class="textmask">Estelle Weyl</h1>
 <h2><a href="http://www.standardista.com">www.standardista.com</a></h2>
 <h2><a href="http://www.twitter.com/estellevw">@estellevw</a></h2>
@@ -1315,6 +1297,12 @@ animationend
 </section>
 </div>
 
+
+<div class="slide intro">
+<header><h1>#AnimDeepDive</h1></header>
+<h2>5</h2>
+<h2>Just enough cowbell</h2>
+</div>
 
 <!-- Thank you -->
 <div class="slide normal">
@@ -1345,456 +1333,7 @@ animationend
 
 
   </div>
-
-<script>
-function vendorPrefix(prefix, id){
-	  var prefixTxt = 'cat';
-		switch (prefix){
-			case 'w':
-				prefixTxt = '-webkit-';
-			break;
-			case 'm':
-				prefixTxt = '-moz-';
-			break;
-			case 'ms':
-				prefixTxt = '-ms-';
-			break;
-			case 'o':
-				prefixTxt = '-o-';
-			break;
-			case 'r':
-			case  '':
-				prefixTxt = '';
-			break;
-		};
-	  var spans = document.getElementById(id).querySelectorAll('u');
-	  for(var i = 0, j = spans.length; i < j; i++ ){
-	  	spans[i].innerHTML = prefixTxt;
-	  }
-
-	}
-
-(function() {
-	var doc = document,
-	    disableBuilds = true,
-		ctr = 0,
-		spaces = /\s+/,
-		a1 = [''],
-	    toArray = function(list) {
-  		return Array.prototype.slice.call(list || [], 0);
-	},
-		byId = function(id) {
-		if (typeof id == 'string') { return doc.getElementById(id); }
-		return id;
-	},
-
-	query = function(query, root) {
-	  if (!query) { return []; }
-		if (typeof query != 'string') { return toArray(query); }
-		if (typeof root == 'string') {
-		  root = byId(root);
-		  if(!root){ return []; }
-    	}
-        root = root || document;
-  		var rootIsDoc = (root.nodeType == 9);
-  		var doc = rootIsDoc ? root : (root.ownerDocument || document);
-
-		// rewrite the query to be ID rooted
-		if (!rootIsDoc || ('>~+'.indexOf(query.charAt(0)) >= 0)) {
-			root.id = root.id || ('qUnique' + (ctr++));
-			query = '#' + root.id + ' ' + query;
-		}
-
-		// don't choke on something like ".yada.yada >"
-		if ('>~+'.indexOf(query.slice(-1)) >= 0) { query += ' *'; }
-		return toArray(doc.querySelectorAll(query));
-	},
-
-	strToArray = function(s) {
-		if (typeof s == 'string' || s instanceof String) {
-			if (s.indexOf(' ') < 0) {
-				a1[0] = s;
-				return a1;
-			}
-			else {
-					return s.split(spaces);
-			}
-		}
-		return s;
-	  },
-
-    addClass = function(node, classStr) {
-	  classStr = strToArray(classStr);
-	  var cls = ' ' + node.className + ' ';
-	  for (var i = 0, len = classStr.length, c; i < len; ++i) {
-		c = classStr[i];
-		if (c && cls.indexOf(' ' + c + ' ') < 0) {
-		  cls += c + ' ';
-		}
-	  }
-	  node.className = cls.trim();
-	},
-
-	removeClass = function(node, classStr) {
-		  var cls;
-		  if (classStr !== undefined) {
-			classStr = strToArray(classStr);
-			cls = ' ' + node.className + ' ';
-			for (var i = 0, len = classStr.length; i < len; ++i) {
-			  cls = cls.replace(' ' + classStr[i] + ' ', ' ');
-			}
-			  cls = cls.trim();
-		  } else {
-			cls = '';
-		  }
-
-		  if (node.className != cls) {
-			node.className = cls;
-		  }
-
-	  },
-
-	  toggleClass = function(node, classStr) {
-		  var cls = ' ' + node.className + ' ';
-		  if (cls.indexOf(' ' + classStr.trim() + ' ') >= 0) {
-			removeClass(node, classStr);
-		  } else {
-			addClass(node, classStr);
-		  }
-	  },
-
-
-
-  		ua = navigator.userAgent,
-		isFF = parseFloat(ua.split('Firefox/')[1]) || undefined,
-		isWK = parseFloat(ua.split('WebKit/')[1]) || undefined,
-		isOpera = parseFloat(ua.split('Opera/')[1]) || undefined,
-
-
-
-  	 	canTransition = (function() {
-		  var ver = parseFloat(ua.split('Version/')[1]) || undefined;
-		  // test to determine if this browser can handle CSS transitions.
-		  var cachedCanTransition =
-
-			(isWK || (isFF && isFF > 3.6 ) || (isOpera && ver >= 10.5));
-		  return function() { return cachedCanTransition; }
-
-  		}
-  )();
-
-
-//-----------------------------------------------------------------//
-
-var Slide = function(node, idx) {
-  this._node = node;
-  if (idx >= 0) {
-    this._count = idx + 1;
-  }
-  if (this._node) {
-    addClass(this._node, 'slide distant-slide');
-  }
-  this._makeCounter();
-  this._makeBuildList();
-};
-
-
-
-Slide.prototype = {
-    _node: null,
-    _count: 0,
-    _buildList: [],
-    _visited: false,
-    _currentState: '',
-    _states: [ 'distant-slide', 'far-past',
-               'past', 'current', 'future',
-               'far-future', 'distant-slide' ],
-    setState: function(state) {
-    if (typeof state != 'string') {
-      state = this._states[state];
-    }
-
-    if (state == 'current' && !this._visited) {
-      this._visited = true;
-      this._makeBuildList();
-    }
-
-    removeClass(this._node, this._states);
-    addClass(this._node, state);
-    this._currentState = state;
-
-
-
-  var _t = this;
-    setTimeout(function(){ _t._runAutos(); } , 400);
-  },
-
-    _makeCounter: function() {
-    if(!this._count || !this._node) { return; }
-
-      var c = doc.createElement('span');
-    c.innerHTML = this._count;
-    c.className = 'counter';
-    this._node.appendChild(c);
-  },
-
-    _makeBuildList: function() {
-    this._buildList = [];
-    if (disableBuilds) { return; }
-
-      if (this._node) {
-      this._buildList = query('[data-build] > *', this._node);
-    }
-
-      this._buildList.forEach(function(el) {
-      addClass(el, 'to-build');
-    });
-  },
-
-    _runAutos: function() {
-    if (this._currentState != 'current') {
-      return;
-    }
-
-      // find the next auto, slice it out of the list, and run it
-
-      var idx = -1;
-    this._buildList.some(function(n, i) {
-      if (n.hasAttribute('data-auto')) {
-        idx = i;
-        return true;
-      }
-
-        return false;
-    });
-    if (idx >= 0) {
-      var elem = this._buildList.splice(idx, 1)[0];
-      var transitionEnd = isWK ? 'webkitTransitionEnd' : (isFF ? 'mozTransitionEnd' : 'oTransitionEnd');
-      var _t = this;
-      if (canTransition()) {
-        var l = function(evt) {
-          elem.parentNode.removeEventListener(transitionEnd, l, false);
-          _t._runAutos();
-        };
-        elem.parentNode.addEventListener(transitionEnd, l, false);
-        removeClass(elem, 'to-build');
-      } else {
-        setTimeout(function() {
-          removeClass(elem, 'to-build');
-          _t._runAutos();
-        }, 400);
-      }
-
-      }
-
-    },
-
-    buildNext: function() {
-    if (!this._buildList.length) {
-      return false;
-    }
-
-      removeClass(this._buildList.shift(), 'to-build');
-    return true;
-  },
-
-  };
-
-
-
-  //
-  // SlideShow class
-  //
-
-  var SlideShow = function(slides) {
-  this._slides = (slides || []).map(function(el, idx) {
-    return new Slide(el, idx);
-  });
-
-
-
-  var h = window.location.hash;
-  try {
-    this.current = parseInt(h.split('#slide')[1], 10);
-  } catch (e) { /* squeltch */ }
-
-  this.current = isNaN(this.current) ? 1 : this.current;
-  var _t = this;
-  doc.addEventListener('keydown', function(e) { _t.handleKeys(e); }, false);
-  doc.addEventListener('mousewheel', function(e) { _t.handleWheel(e); }, false);
-  doc.addEventListener('DOMMouseScroll', function(e) { _t.handleWheel(e); }, false);
-  doc.addEventListener('touchstart',  function(e) { _t.handleTouchStart(e); }, false);
-  doc.addEventListener('touchend', function(e) { _t.handleTouchEnd(e); }, false);
-  window.addEventListener('popstate', function(e) { _t.go(e.state); }, false);
-  doc.getElementById('back').addEventListener('click', function(e) {_t.prev();}, false);
-  doc.getElementById('next').addEventListener('click', function(e) {_t.next();}, false);
-  this._update();
-};
-
-
-
-SlideShow.prototype = {
-  _slides: [],
-
-    _update: function(dontPush) {
-		document.querySelector('#presentation-counter').innerText = this.current;
-		if (history.pushState) {
-		  if (!dontPush) {
-			history.pushState(this.current, 'Slide ' + this.current, '#slide' + this.current);
-		    }
-		} else {
-		  window.location.hash = 'flopslide' + this.current;
-		}
-	    for (var x = this.current-1; x < this.current + 7; x++) {
-		    if (this._slides[x-4]) {
-				this._slides[x-4].setState(Math.max(0, x-this.current));
-		    }
-		  }
-    },
-
-    current: 0,
-
-    next: function() {
-		if (!this._slides[this.current-1].buildNext()) {
-		  this.current = Math.min(this.current + 1, this._slides.length);
-		  this._update();
-		}
-	 },
-	prev: function() {
-	this.current = Math.max(this.current-1, 1);
-	this._update();
-  },
-
-   go: function(num) {
-	  if (!num) return;
-	  if (history.pushState && this.current != num) {
-	    history.replaceState(this.current, 'Slide ' + this.current, '#slide' + this.current);
-	  }
-	  this.current = num;
-	  this._update(true);
-    },
-
-
-
-  _notesOn: false,
-
- showNotes: function() {
-    var isOn = this._notesOn = !this._notesOn;
-    query('.notes').forEach(function(el) {
-      el.style.display = (isOn) ? '' : 'none';
-    });
-  },
-
-
-    handleWheel: function(e) {
-    var delta = 0;
-    if (e.wheelDelta) {
-      delta = e.wheelDelta/120;
-      if (isOpera) {
-			delta = -delta;
-		  }
-      }
-	  else if (e.detail) {
-        delta = -e.detail/3;
-      }
-
-      if (delta > 0 ) {
-		  this.prev();
-		  return;
-		}
-      if (delta < 0 ) {
-		  this.next();
-		  return;
-		}
-    },
-
-	addNotes: function(){
-		if(document.querySelector('.current textarea.mynotes')) {
-			document.querySelector('.current textarea.mynotes').classList.toggle('temphidden');
-			return;
-		}
-		var ta = document.createElement('textarea'),
-		     currentSlide = document.querySelector('.current section'),
-			 path = window.location.pathname,
-			 A = path.lastIndexOf('/') + 1,
-			 B = path.lastIndexOf('.'),
-			 firstPartOfKey, key;
-		if(B && B > A){
-		    firstPartOfKey = path.substring(A, B);
-		} else {
-		    firstPartOfKey = path.substring(1, path.length-1) || 'home';
-		}
-		//console.log(firstPartOfKey);
-		key = firstPartOfKey +  window.location.hash;
-		ta.value = window.localStorage.getItem(key) || '';
-		ta.className = 'mynotes';
-
-		ta.addEventListener('keyup', function(){
-			//console.log(key + ' ' + ta.value)
-		    window.localStorage.setItem(key,ta.value);
-		});
-		currentSlide.appendChild(ta);
-	},
-
-
-	removeHidingClass: function(){
-		var paragraphToShow = document.querySelector('.current .temphidden');
-		if(paragraphToShow) {paragraphToShow.classList.remove('temphidden');}
-
-	},
-
-    handleKeys: function(e) {
-      // disable keys for these elements
-      if (/^(input|textarea|pre|object)$/i.test(e.target.nodeName)) return;
-
-
-      switch (e.keyCode) {
-		  case 37: // left arrow
-		  case 33: // left clicker
-			 this.prev(); break;
-		  case 39: // right arrow
-		  case 32: // space
-		  case 34: // clicker right
-			 this.next(); break;
-		  case 50: // 2
-		  case 190: // 2
-			 this.showNotes();
-			 this.removeHidingClass();
-			 break;
-	      case 52: // 4 (for taking notes with local storage (students)
-		     this.addNotes(); break;
-		     break;
-    	}
-    },
-
-    _touchStartX: 0,
-    handleTouchStart: function(e) {
-    this._touchStartX = e.touches[0].pageX;
-  },
-
-    handleTouchEnd: function(e) {
-    var delta = this._touchStartX - e.changedTouches[0].pageX;
-    var SWIPE_SIZE = 150;
-    if (delta > SWIPE_SIZE) {
-      this.next();
-    } else if (delta< -SWIPE_SIZE) {
-       this.prev();
-     }
-    },
-  };
-
-  // Initialize
-  var slideshow = new SlideShow(query('.slide'));
-})();
-
-  </script>
-  <!--[if lt IE 9]>
-  <script
-
-  src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js"></script>
-  <script>CFInstall.check({ mode: "overlay" });</script>
-  <![endif]-->
-
+<script src="static/js/slides.js"></script>
   </body>
 
 </html>

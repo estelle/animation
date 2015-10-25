@@ -3,12 +3,10 @@
 <html>
 <head>
   <meta charset="utf-8">
+
+<title>!important in animations</title>
+<link rel="stylesheet" href="../static/css/files.css">
 <style>
-head, style {display: block;}
-[contenteditable] {-webkit-user-modify: read-write-plaintext-only;}
-style:first-of-type {visibility:hidden;}
-#editme {padding: 20px; font-size: 1.5em; white-space: pre; font-family: monospace; white-space:pre; border-radius: 10px; border: 3px solid #aaa; background-color:#dedede; margin: 20px;  font-family:"Courier New", Courier, monospace; }
-body {font-family:Verdana, Geneva, sans-serif; font-size:1.2em}
 
 div {
   padding: 20px; margin: 20px;
@@ -18,21 +16,16 @@ div {
 }
 </style>
 
-<style contenteditable id="editme">
-div { -webkit-animation: test infinite 10s alternate;
+<style contenteditable id="editme">div {
   animation: test infinite 10s alternate;
   background: red; border: 5px black solid;
 }
-@-webkit-keyframes test {
-  45% { background: green; }
-  55% { background: blue !important; border-width: 20px !important; }
-}
 @keyframes test {
   45% { background: green; }
-  55% { background: blue !important;  border-width: 20px !important;}
-}
-</style>
-<title></title>
+  55% { background: blue !important;  
+    border-width: 20px !important;
+  }
+}</style>
 </head>
 
 <body>
