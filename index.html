@@ -299,7 +299,27 @@ code:hover {
     <li><code>transitionend</code> for EVERY property</li>
     <li><code>transitionend</code> for each long-hand property within a shorthand</li>
 </ul>
-     </section>
+
+<pre contenteditable>table {
+  border: 1px black solid;
+  transition: border 1s linear 50ms;
+}
+table:hover {
+  border: 5px red solid;
+}</pre>
+
+<ul style="-moz-column-count: 2;-webkit-column-count: 2; column-count: 2;">
+  <li>border-top-color</li>
+  <li>border-right-color</li>
+  <li>border-bottom-color</li>
+  <li>border-left-color</li>
+
+  <li>border-top-width</li>
+  <li>border-right-width</li>
+  <li>border-bottom-width</li>
+  <li>border-left-width</li>
+</ul>
+</section>
  </div>
 
 <!-- Useful example -->
